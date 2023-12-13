@@ -16,6 +16,9 @@
     --clr-text: #cdd6f4;
     --clr-accent: #b4befe;
     --clr-mauve: #cba6f7;
+    --clr-blue: #89b4fa;
+    --clr-green: #a6e3a1;
+    --clr-teal: #94e2d5;
     --clr-black: #11111b;
   }
 
@@ -23,7 +26,7 @@
     color-scheme: dark;
     font-family: 'Montserrat';
 
-    background-color:var(--clr-base);
+    background-color: var(--clr-base);
     color: var(--clr-text);
   }
 
@@ -40,37 +43,47 @@
   }
 
   .hero {
+    position: relative;
     display: flex;
     align-items: center;
     flex-direction: column;
 
-    padding: 4rem 0;
+    padding: 7rem 0;
 
-    background:
-        linear-gradient(45deg, var(--clr-mauve), var(--clr-accent));
     color: var(--clr-black);
-    animation: hero 3s forwards;
+    animation: hero-text 4s forwards;
   }
 
-  @keyframes hero {
-    from {
-      opacity: 0;
-      transform: translateY(-100px);
-      color: var(--clr-text);
-    }
+  .hero::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background:
+      linear-gradient(45deg, var(--clr-mauve), var(--clr-accent), var(--clr-teal), var(--clr-blue));
+    background-size: 200% 100%;
 
-    30% {
-      transform: translateY(0px);
-      color: var(--clr-text);
-    }
+    --mask:
+      radial-gradient(111.80px at 50% calc(100% - 150.00px),#000 99%,#0000 101%) calc(50% - 100px) 0/200px 100%,
+      radial-gradient(111.80px at 50% calc(100% + 100.00px),#0000 99%,#000 101%) 50% calc(100% - 50px)/200px 100% repeat-x;
+    -webkit-mask: var(--mask);
+    mask: var(--mask);
 
-    60% {
-      opacity: 1;
-      color: var(--clr-black);
-    }
+    /* mask-image: linear-gradient(rgb(0 0 0 / 1), rgb(0 0 0 / 0.8) 30%, rgb(0 0 0 / 0.3)); */
+    animation: hero-bg 8s ease alternate infinite, hero-fade 4s forwards;
 
-    to {
-      opacity: 0.5;
-    }
+    inset: 0;
+  }
+
+  @keyframes hero-bg {
+  from {background-position: 10% 0%;}
+  to {background-position: 100% 0%;}
+  }
+
+  @keyframes hero-text {
+  to {color: var(--clr-text);}
+  }
+
+  @keyframes hero-fade {
+  to {filter: brightness(50%);}
   }
 </style>
