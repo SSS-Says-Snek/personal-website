@@ -1,10 +1,13 @@
 <script>
+  import Image from '$lib/Image.svelte'
+  import Hero from './Hero.svelte'
+  import Button from '$lib/Button.svelte';
 </script>
 
-<div class="hero full-width">
+<Hero>
   <h1>Hey, I'm Brandon</h1>
   <h2>(also known as SSS-Says-Snek)</h2>
-</div>
+</Hero>
 
 <div class="container">
   <section>
@@ -14,7 +17,7 @@
       Passionate Learner.
     </h2>
 
-    <img class="circular-img" src="/images/piano.jpg" width="500px" alt="Me playing the piano">
+    <Image src="/images/piano.jpg" width="500" alt="Me playing a piano" />
   </section>
 
   <section class="skew-bg" data-gap="large">
@@ -27,77 +30,38 @@
       <button type="button">Go to Portfolio</button>
     </div>
 
-    <img class="circular-img" id="programming-img" src="/images/programming.png"
-      width="400px"
-      alt="Source code of one of my projects">
+    <Image src="/images/programming.png"
+      alt="Source code of one of my projects"
+      width="400"
+      translucent={true} />
+
+  </section>
+
+  <section data-gap="medium">
+    <div class="img-group">
+      <Image src="/images/math.png"
+        alt="Math"
+        width="200"
+        translucent={true} />
+      <Image src="/images/trombone.jpg"
+        alt="Trombone"
+        width="250"/>
+    </div>
+
+    <div class="button-group right-align">
+      <h2 class="description text-align-right">
+        Math Enthusiast<br/>
+        and Classical<br/>
+        Music Geek
+      </h2>
+
+      <button type="button">About Me</button>
+    </div>
   </section>
 </div>
 
 <style>
-  :global(:root) {
-    --clr-hsl-base: 240, 21%, 15%;
-    --clr-hsl-text: 226, 64%, 88%;
-    --clr-hsl-accent: 232, 97%, 85%;
-    --clr-hsl-mauve: 267, 84%, 81%;
-    --clr-hsl-blue: 218, 92%, 76%;
-    --clr-hsl-green: 115, 54%, 76%;
-    --clr-hsl-teal: 170, 57%, 73%;
-    --clr-hsl-black: 240, 23%, 9%;
-
-    --clr-base: hsl(var(--clr-hsl-base));
-    --clr-text: hsl(var(--clr-hsl-text));
-    --clr-accent: hsl(var(--clr-hsl-accent));
-    --clr-mauve: hsl(var(--clr-hsl-mauve));
-    --clr-blue: hsl(var(--clr-hsl-blue));
-    --clr-green: hsl(var(--clr-hsl-green));
-    --clr-teal: hsl(var(--clr-hsl-teal));
-    --clr-black: hsl(var(--clr-hsl-black));
-  }
-
-  :global(body) {
-    color-scheme: dark;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-
-    background-color: var(--clr-base);
-    color: var(--clr-text);
-
-    max-width: min(60rem, 100% - 6rem);
-    margin-inline: auto;
-  }
-
-  /* RESETS */
-  * {
-    margin: 0;
-    font: inherit;
-  }
-
-  h1 {
-    font-size: 4em;
-    font-weight: 900;
-  }
-  h2 {
-    font-size: 1.25em;
-    font-weight: 600;
-  }
-
-  img,
-  svg {
-    max-width: 100%;
-  }
-
   /* COOL STYLES */
-  button {
-    padding: 0.375em 0.125em;
-    font-size: 2em;
-    font-weight: 700;
-    border-radius: 100vw;
-    border: none;
-
-    box-shadow: 0px 0px 20px hsl(var(--clr-hsl-mauve), 0.35);
-    background-color: var(--clr-blue);
-    color: var(--clr-black);
-  }
-
   section {
     display: flex;
     flex-direction: column;
@@ -108,23 +72,12 @@
   }
 
   /* Utility classes */
-  .circular-img {
-    object-fit: cover;
-    clip-path: circle(closest-side);
-    mix-blend-mode: luminosity;
-  }
-
-  .full-width {
-    width: 100vw;
-    margin-left: calc((100% - 100vw) / 2);
-  }
-
   .container {
     display: flex;
     flex-direction: column;
     gap: 4rem;
   }
-
+  
   /* Specific stuff idk */
   .description {
     font-size: 2em;
@@ -136,6 +89,12 @@
     display: flex;
     flex-direction: column;
     gap: 1.25em;
+  }
+
+  .img-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   /* Cool effects */
@@ -157,38 +116,15 @@
     inset: 0;
   }
 
-  .hero {
-    position: relative;
-    /* display: flex; */
-    /* align-items: center; */
-    flex-direction: column;
-
-    padding: 7rem 0;
-    text-align: center;
-
-    color: var(--clr-black);
-    animation: hero-text 4s forwards;
+  /* Maybe I should use a container query */
+  @media (width > 650px) {
+    .img-group {
+      flex-direction: row;
+      gap: 5em;
+    }
   }
 
-  .hero::before {
-    content: "";
-    position: absolute;
-    z-index: -1;
-    background:
-      linear-gradient(45deg, var(--clr-mauve), var(--clr-accent), var(--clr-teal), var(--clr-blue));
-    background-size: 200% 100%;
-
-    --mask:
-      radial-gradient(111.80px at 50% calc(100% - 150.00px),#000 99%,#0000 101%) calc(50% - 100px) 0/200px 100%,
-      radial-gradient(111.80px at 50% calc(100% + 100.00px),#0000 99%,#000 101%) 50% calc(100% - 50px)/200px 100% repeat-x;
-    -webkit-mask: var(--mask);
-    mask: var(--mask);
-
-    animation: hero-bg 8s ease alternate infinite, hero-fade 4s forwards;
-
-    inset: 0;
-  }
-
+  /* Media Query for large devices */
   @media (width > 1100px) {
     section {
       text-align: unset;
@@ -199,8 +135,35 @@
       gap: 20em;
     }
 
+    section[data-gap="medium"] {
+      gap: 10em;
+    }
+
     .description {
       font-size: 3em;
+    }
+    
+    img, svg {
+      display: inline;
+    }
+    
+    .right-align {
+      margin-left: auto;
+      margin-right: 0;
+    }
+
+    .text-align-right {
+      text-align: right;
+    }
+
+    .img-group {
+      gap: 5em; 
+    }
+    .img-group :first-child {
+      align-self: flex-start;
+    }
+    .img-group > :last-child {
+      align-self: flex-end;
     }
   }
 
@@ -214,11 +177,6 @@
   }
   @keyframes hero-fade {
   to {filter: brightness(50%);}
-  }
-
-  #programming-img {
-    mix-blend-mode: unset;
-    opacity: 50%;
   }
 
 </style>

@@ -1,0 +1,53 @@
+
+:root {
+  --clr-hsl-base: 240, 21%, 15%;
+  --clr-hsl-text: 226, 64%, 88%;
+  --clr-hsl-accent: 232, 97%, 85%;
+  --clr-hsl-mauve: 267, 84%, 81%;
+  --clr-hsl-blue: 218, 92%, 76%;
+  --clr-hsl-green: 115, 54%, 76%;
+  --clr-hsl-teal: 170, 57%, 73%;
+  --clr-hsl-black: 240, 23%, 9%;
+
+  --clr-base: hsl(var(--clr-hsl-base));
+  --clr-text: hsl(var(--clr-hsl-text));
+  --clr-accent: hsl(var(--clr-hsl-accent));
+  --clr-mauve: hsl(var(--clr-hsl-mauve));
+  --clr-blue: hsl(var(--clr-hsl-blue));
+  --clr-green: hsl(var(--clr-hsl-green));
+  --clr-teal: hsl(var(--clr-hsl-teal));
+  --clr-black: hsl(var(--clr-hsl-black));
+}
+
+body {
+  color-scheme: dark;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  background: linear-gradient(180deg, var(--clr-base), var(--clr-black));
+  color: var(--clr-text);
+
+  max-width: min(60rem, 100% - 6rem);
+  margin-inline: auto;
+}
+
+/* RESETS */
+* {
+  margin: 0;
+  font: inherit;
+}
+
+img,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+h1 {
+  font-size: 4em;
+  font-weight: 900;
+}
+h2 {
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
