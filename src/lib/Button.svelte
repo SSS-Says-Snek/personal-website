@@ -13,7 +13,7 @@
     border: none;
 
     box-shadow: 0px 0px 20px hsl(var(--clr-hsl-mauve), 0.35);
-    background-color: var(--clr-button, --clr-blue);
+    background-color: var(--clr-button, var(--clr-blue));
     color: var(--clr-black);
     cursor: pointer;
 

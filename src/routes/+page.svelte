@@ -27,7 +27,7 @@
         Since 2018
       </h2>
 
-      <button type="button">Go to Portfolio</button>
+      <Button text="Go to Portfolio" />
     </div>
 
     <Image src="/images/programming.png"
@@ -55,7 +55,7 @@
         Music Geek
       </h2>
 
-      <button type="button">About Me</button>
+      <Button text="About Me" />
     </div>
   </section>
 </div>
