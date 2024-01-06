@@ -160,12 +160,5 @@
     .img-group {
       gap: 5em; 
     }
-    .img-group :first-child {
-      align-self: flex-start;
-    }
-    .img-group > :last-child {
-      align-self: flex-end;
-    }
-  }
-
+}
 </style>

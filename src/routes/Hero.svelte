@@ -16,11 +16,6 @@
     to {filter: brightness(50%);}
   }
 
-  .full-width {
-    width: 100vw;
-    margin-left: calc((100% - 100vw) / 2);
-  }
-
   .hero {
     --transition-time: 4s;
     --expand-time: 750ms;
@@ -61,7 +56,6 @@
       hero-fade var(--transition-time) forwards;
   }
 
-  /* TODO: hero anim: expand downwards, wavy pattern move across*/
   @keyframes hero-bg {
     from {
       background-position: 10% 0%;

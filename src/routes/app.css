@@ -5,18 +5,26 @@
   --clr-hsl-accent: 232, 97%, 85%;
   --clr-hsl-mauve: 267, 84%, 81%;
   --clr-hsl-blue: 218, 92%, 76%;
+  --clr-hsl-sapphire: 199, 76%, 69%;
+  --clr-hsl-sky: 189, 71%, 73%;
   --clr-hsl-green: 115, 54%, 76%;
   --clr-hsl-teal: 170, 57%, 73%;
   --clr-hsl-black: 240, 23%, 9%;
+  --clr-hsl-surface: 237, 16%, 23%;
+  --clr-hsl-mantle: 240, 21%, 12%;
 
   --clr-base: hsl(var(--clr-hsl-base));
   --clr-text: hsl(var(--clr-hsl-text));
   --clr-accent: hsl(var(--clr-hsl-accent));
   --clr-mauve: hsl(var(--clr-hsl-mauve));
   --clr-blue: hsl(var(--clr-hsl-blue));
+  --clr-sapphire: hsl(var(--clr-hsl-sapphire));
+  --clr-sky: hsl(var(--clr-hsl-sky));
   --clr-green: hsl(var(--clr-hsl-green));
   --clr-teal: hsl(var(--clr-hsl-teal));
   --clr-black: hsl(var(--clr-hsl-black));
+  --clr-surface: hsl(var(--clr-hsl-surface));
+  --clr-mantle: hsl(var(--clr-hsl-mantle));
 }
 
 body {
