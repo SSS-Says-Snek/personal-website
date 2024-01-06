@@ -1,8 +1,11 @@
 <script lang="ts">
   export let text: string;
+  export let href: string = "";
 </script>
 
-<button type="button">{text}</button>
+<button type="button">
+  <a href={href}>{text}</a>
+</button>
 
 <style>
   button {
@@ -22,5 +25,9 @@
 
   button:hover {
     transform: scale(1.05);
+  }
+
+  a {
+    all: unset;
   }
 </style>

@@ -1,5 +1,5 @@
 <div class="hero full-width">
-  <slot />
+  <div><slot /></div>
 </div>
 
 <style>
@@ -22,22 +22,30 @@
   }
 
   .hero {
-    position: relative;
-    /* display: flex; */
-    /* align-items: center; */
-    flex-direction: column;
+    --transition-time: 4s;
+    --expand-time: 750ms;
 
-    padding: 7rem 0;
+    position: relative;
+    display: grid;
+    grid-template-rows: 0fr;
+
     text-align: center;
 
     color: var(--clr-black);
-    animation: hero-text 4s forwards;
+    animation: 
+      hero-text var(--transition-time) forwards,
+      hero-expand var(--expand-time) forwards;
+  }
+  
+  .hero > div {
+    overflow: hidden;
   }
 
   .hero::before {
     content: "";
     position: absolute;
     z-index: -1;
+    inset: 0;
     background:
       linear-gradient(45deg, var(--clr-mauve), var(--clr-accent), var(--clr-teal), var(--clr-blue));
     background-size: 200% 100%;
@@ -48,9 +56,34 @@
     -webkit-mask: var(--mask);
     mask: var(--mask);
 
-    animation: hero-bg 8s ease alternate infinite, hero-fade 4s forwards;
+    animation: 
+      hero-bg 8s ease alternate infinite,
+      hero-fade var(--transition-time) forwards;
+  }
 
-    inset: 0;
+  /* TODO: hero anim: expand downwards, wavy pattern move across*/
+  @keyframes hero-bg {
+    from {
+      background-position: 10% 0%;
+    }
+    to {
+      background-position: 100% 0%;
+    }
+  }
+
+  @keyframes hero-text {
+    to {color: var(--clr-text);}
+  }
+  
+  @keyframes hero-expand {
+    to {
+      grid-template-rows: 1fr;
+      padding: 7rem 0;
+    } 
+  }
+
+  @keyframes hero-fade {
+    to {filter: brightness(50%);}
   }
 
 </style>

@@ -27,7 +27,7 @@
         Since 2018
       </h2>
 
-      <Button text="Go to Portfolio" />
+      <Button text="Go to Portfolio" href="/portfolio" />
     </div>
 
     <Image src="/images/programming.png"
@@ -55,7 +55,8 @@
         Music Geek
       </h2>
 
-      <Button text="About Me" />
+      <Button text="About Me"
+        --clr-button="var(--clr-green)"/>
     </div>
   </section>
 </div>
@@ -165,18 +166,6 @@
     .img-group > :last-child {
       align-self: flex-end;
     }
-  }
-
-  /* TODO: hero anim: expand downwards, wavy pattern move across*/
-  @keyframes hero-bg {
-  from {background-position: 10% 0%;}
-  to {background-position: 100% 0%;}
-  }
-  @keyframes hero-text {
-  to {color: var(--clr-text);}
-  }
-  @keyframes hero-fade {
-  to {filter: brightness(50%);}
   }
 
 </style>
