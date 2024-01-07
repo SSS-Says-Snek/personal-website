@@ -12,6 +12,9 @@
   --clr-hsl-black: 240, 23%, 9%;
   --clr-hsl-surface: 237, 16%, 23%;
   --clr-hsl-mantle: 240, 21%, 12%;
+  --clr-hsl-peach: 23, 92%, 75%;
+  --clr-hsl-pink: 316, 72%, 86%;
+  --clr-hsl-red: 343, 81%, 75%;
 
   --clr-base: hsl(var(--clr-hsl-base));
   --clr-text: hsl(var(--clr-hsl-text));
@@ -25,6 +28,9 @@
   --clr-black: hsl(var(--clr-hsl-black));
   --clr-surface: hsl(var(--clr-hsl-surface));
   --clr-mantle: hsl(var(--clr-hsl-mantle));
+  --clr-peach: hsl(var(--clr-hsl-peach));
+  --clr-pink: hsl(var(--clr-hsl-pink));
+  --clr-red: hsl(var(--clr-hsl-red));
 }
 
 body {

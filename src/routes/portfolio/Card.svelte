@@ -3,6 +3,7 @@
   import MdiAccountMultiple from '~icons/mdi/account-multiple'
   import MdiApplicationBracketsOutline from '~icons/mdi/application-brackets-outline'
   import MdiYoutube from '~icons/mdi/youtube'
+  import MdiFileDocument from '~icons/mdi/file-document'
 
   export let title: string;
   export let date_created: string;
@@ -13,6 +14,7 @@
 
   export let project_src: string = "";
   export let project_spotlight: string = "";
+  export let project_docs: string = "";
 </script>
 
 <div class="card">
@@ -50,6 +52,14 @@
           </button>
         </a>
       {/if}
+      {#if project_docs}
+        <a href={project_docs}>
+          <button class="button-link icon-container">
+            <MdiFileDocument />
+            Docs
+          </button>
+        </a>
+      {/if}
     </div>
 
     <p class="description">
@@ -82,23 +92,33 @@
 
   .card {
     border-radius: 1rem;
-    border: 3px solid var(--clr-border, var(--clr-accent));
-
+    border: double 3px transparent;
     overflow: hidden;
 
     background: linear-gradient(135deg,
       var(--clr-black),
       var(--clr-mantle),
       var(--clr-surface)
-    );
+    ),
+      conic-gradient(
+        from var(--border-angle, 0deg),
+        var(--clr-red),
+        var(--clr-peach),
+        var(--clr-green),
+        var(--clr-sky),
+        var(--clr-blue),
+        var(--clr-mauve),
+        var(--clr-red)
+      );
+    background-origin: border-box;
+    background-clip: content-box, border-box; 
   }
 
   /* CONTAINERS */
   .info {
-    display: flex;
-    flex-direction: column;
+    display: grid;
 
-    align-items: center;
+    place-items: center;
     text-align: center;
 
     gap: 0.5rem;
@@ -117,9 +137,10 @@
 
   .links {
     display: flex;
-    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
   }
-
 
   /* EMBELLISHMENTS */
   /* .top-rainbow {width: 100%; */
