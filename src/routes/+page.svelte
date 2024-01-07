@@ -1,4 +1,8 @@
 <script>
+  import MdiYoutube from '~icons/mdi/youtube'
+  import MdiReddit from '~icons/mdi/reddit'
+  import MdiDiscord from '~icons/mdi/discord'
+
   import Image from '$lib/Image.svelte'
   import Hero from './Hero.svelte'
   import Button from '$lib/Button.svelte';
@@ -7,6 +11,18 @@
 <Hero>
   <h1>Hey, I'm Brandon</h1>
   <h2>(also known as SSS-Says-Snek)</h2>
+
+  <div class="links">
+    <a class="profile-link" href="https://www.youtube.com/channel/UCy0lVIEyazL73R-8NECWMfw">
+      <MdiYoutube style="font-size: 30px;" />
+    </a>
+    <a class="profile-link" href="https://www.reddit.com/user/s4aysnek/">
+      <MdiReddit style="font-size: 30px;" />
+    </a>
+    <a class="profile-link" href="https://www.discordapp.com/users/683852333293109269">
+      <MdiDiscord style="font-size: 30px;" />
+    </a>
+  </div>
 </Hero>
 
 <div class="container">
@@ -34,7 +50,6 @@
       alt="Source code of one of my projects"
       width="400"
       translucent={true} />
-
   </section>
 
   <section data-gap="medium">
@@ -96,6 +111,33 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+  .profile-link {
+    all: unset;
+    transition: scale 200ms;
+    cursor: pointer;
+  }
+  .profile-link:hover {
+    scale: 1.1;
+  }
+
+  .links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .button-link {
+    border: unset;
+    border-radius: 0.25rem;
+
+    color: var(--clr-black);
+    font-weight: 600;
+
+    background-color: var(--clr-mauve);
+    padding: 0.25rem;
   }
 
   /* Cool effects */

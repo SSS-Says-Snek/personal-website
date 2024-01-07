@@ -4,13 +4,17 @@
   import MdiApplicationBracketsOutline from '~icons/mdi/application-brackets-outline'
   import MdiYoutube from '~icons/mdi/youtube'
   import MdiFileDocument from '~icons/mdi/file-document'
+  import MdiLanguagePython from '~icons/mdi/language-python'
+  import MdiLightbulbQuestionOutline from '~icons/mdi/lightbulb-question-outline'
 
   export let title: string;
   export let date_created: string;
   export let description: string;
   export let img_src: string;
   export let img_alt: string;
+  export let project_lang: string;
   export let authors: string = "";
+
 
   export let project_src: string = "";
   export let project_spotlight: string = "";
@@ -32,6 +36,17 @@
       <div class="icon-container">
         <MdiAccountMultiple style="color: var(--clr-blue);"/>
         <h3 class="authors">Me{authors ? ', ' : ''}{authors}</h3>
+      </div>
+      
+      <div class="icon-container">
+        {#if project_src}
+          {#if project_lang == "python"}
+            <MdiLanguagePython style="color: var(--clr-peach)" />
+          {/if}
+        {:else}
+          <MdiLightbulbQuestionOutline />
+        {/if}
+        <h3 class="lang">{project_lang}</h3>
       </div>
     </div>
 
@@ -158,7 +173,7 @@
   /*   background-size: 100% 10px; */
   /* } */
 
-  .date, .authors {
+  .date, .authors, .lang {
     font-weight: 600;
   }
 
@@ -168,6 +183,11 @@
 
   .authors {
     color: var(--clr-blue);
+  }
+
+  .lang {
+    text-transform: capitalize;
+    color: var(--clr-peach);
   }
 
   .title {

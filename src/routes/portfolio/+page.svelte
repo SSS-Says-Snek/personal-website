@@ -16,22 +16,21 @@
     img_src="/images/cards/hisock.png"
     img_alt="Screenshot of an ongoing Connect Four game made with Hisock"
 
+    project_lang="python"
     project_src="https://github.com/SSS-Says-Snek/hisock"
     project_spotlight="https://www.youtube.com/watch?v=UVYoySkm8ZU"
     project_docs="https://hisock.readthedocs.io"
   />
 
   <Card
-    title="Hisock"
-    date_created="Sep 2021"
-    authors="sheepy0125"
-    description="Lorem ipsum dolor sit amet, qui minim labore adipisicing minim sint cillum sint consectetur cupidatat."
-    img_src="/images/trombone.jpg"
+    title="Hisock Chat App"
+    date_created="Jul 2023"
+    description="A much-improved overhaul of a 2020 chat app I made, with video technology, direct messages, and global messages. Built with PyQt5 and hisock."
+    img_src="/images/cards/hisock-chat-app.png"
     img_alt="Screenshot of an ongoing Connect Four game made with Hisock"
 
-    project_src="https://github.com/SSS-Says-Snek/hisock"
-    project_spotlight="https://www.youtube.com/watch?v=UVYoySkm8ZU"
-    --clr-border="var(--clr-green)"
+    project_lang="python"
+    project_src="https://github.com/SSS-Says-Snek/hisock-voip-app"
   />
 </div>
 

@@ -30,7 +30,7 @@
   --clr-mantle: hsl(var(--clr-hsl-mantle));
   --clr-peach: hsl(var(--clr-hsl-peach));
   --clr-pink: hsl(var(--clr-hsl-pink));
-  --clr-red: hsl(var(--clr-hsl-red));
+  --clr-red: hsl(var(--clr-hsl-pink));
 }
 
 body {

@@ -25,6 +25,7 @@
     grid-template-rows: 0fr;
 
     text-align: center;
+    place-items: center;
 
     color: var(--clr-black);
     animation: 
