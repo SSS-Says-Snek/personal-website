@@ -37,7 +37,7 @@
 <style>
   .cards {
     display: grid;
-    gap: 2rem;
+    gap: 3rem;
   }
 
   @media (width > 1000px) {

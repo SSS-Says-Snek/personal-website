@@ -94,8 +94,8 @@
   }
 
   img {
-    aspect-ratio: 4 / 3;
-    object-fit: contain;
+    width: 100%;
+    object-fit: cover;
   }
 
   .img-container {
@@ -127,6 +127,12 @@
       );
     background-origin: border-box;
     background-clip: content-box, border-box; 
+
+    transition: all 400ms;
+  }
+  .card:hover {
+    scale: 1.05;
+    box-shadow: 0px 0px 40px hsl(var(--clr-hsl-mauve), 0.2);
   }
 
   /* CONTAINERS */

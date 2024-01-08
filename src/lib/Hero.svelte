@@ -23,11 +23,11 @@
     inset: 0;
     z-index: -1;
 
-    background: linear-gradient(45deg,
+    background: var(--background, linear-gradient(45deg,
       var(--clr-blue),
       var(--clr-sky),
       var(--clr-sapphire)
-    );
+    ));
     background-size: 200% 100%;
     animation:
       hero-fade var(--transition-time) forwards,

@@ -71,6 +71,7 @@
       </h2>
 
       <Button text="About Me"
+        href="/about-me"
         --clr-button="var(--clr-green)"/>
     </div>
   </section>
