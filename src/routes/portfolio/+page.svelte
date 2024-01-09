@@ -1,6 +1,6 @@
 <script>
   import Hero from "$lib/Hero.svelte";
-  import Card from "./Card.svelte";
+  import ProjectCard from "./ProjectCard.svelte";
 </script>
 
 <Hero>
@@ -8,7 +8,7 @@
 </Hero>
 
 <div class="cards">
-  <Card
+  <ProjectCard
     title="Hisock"
     date_created="Sep 2021"
     authors="sheepy0125"
@@ -22,7 +22,7 @@
     project_docs="https://hisock.readthedocs.io"
   />
 
-  <Card
+  <ProjectCard
     title="Hisock Chat App"
     date_created="Jul 2023"
     description="A much-improved overhaul of a 2020 chat app I made, with video technology, direct messages, and global messages. Built with PyQt5 and hisock."
