@@ -6,6 +6,7 @@
   import MdiFileDocument from '~icons/mdi/file-document'
   import MdiLanguagePython from '~icons/mdi/language-python'
   import MdiLightbulbQuestionOutline from '~icons/mdi/lightbulb-question-outline'
+  import MdiFile from '~icons/mdi/file'
 
   export let title: string;
   export let date_created: string;
@@ -27,26 +28,28 @@
   <div class="info">
     <h2 class="title">{title}</h2>
 
-    <div class="details">
+    <div class="details date">
       <div class="icon-container">
         <MdiCalendarToday style="color: var(--clr-mauve);"/>
-        <h3 class="date">{date_created}</h3>
+        <h3>{date_created}</h3>
       </div>
 
-      <div class="icon-container">
+      <div class="icon-container authors">
         <MdiAccountMultiple style="color: var(--clr-blue);"/>
-        <h3 class="authors">Me{authors ? ', ' : ''}{authors}</h3>
+        <h3>Me{authors ? ', ' : ''}{authors}</h3>
       </div>
       
-      <div class="icon-container">
+      <div class="icon-container lang">
         {#if project_src}
           {#if project_lang == "python"}
-            <MdiLanguagePython style="color: var(--clr-peach)" />
+            <MdiLanguagePython />
+          {:else if project_lang == "text"}
+            <MdiFile />
           {/if}
         {:else}
           <MdiLightbulbQuestionOutline />
         {/if}
-        <h3 class="lang">{project_lang}</h3>
+        <h3>{project_lang}</h3>
       </div>
     </div>
 
