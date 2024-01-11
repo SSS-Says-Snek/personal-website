@@ -1,12 +1,17 @@
-<script>
+<script lang="ts">
   import Hero from "$lib/Hero.svelte";
   import ProjectCard from "./ProjectCard.svelte";
 
+  const START_DELAY = 500;
+  const DELAY_AMOUNT = 100;
   let cards = [
     {
       title: "Hisock",
       date_created: "Sep 2021",
-      authors: "sheepy0125",
+      authors: [{
+        link: "https://github.com/sheepy0125",
+        name: "sheepy0125"
+      }],
       description: "A higher level extension of Python's built-in socket module, with simpler and more efficient usages.",
       img_src: "/images/cards/hisock.png",
       img_alt: "Screenshot of an ongoing Connect Four game made with Hisock",
@@ -37,8 +42,71 @@
 
       project_lang: "text",
       project_src: "https://github.com/SSS-Says-Snek/dotfiles"
+    },
+
+    {
+      title: "ParaPac",
+      date_created: "Jul 2021",
+      authors: [
+        {
+          link: "https://github.com/avaxar",
+          name: "Avaxar"
+        },
+        {
+          link: "https://github.com/coolstuff123",
+          name: "coolstuff123"
+        }
+      ],
+      description: "A multidimensional Pac-Man spinoff, with a few twists. Made in 7 days for the 2021 Pygame Community Summer Team jam.",
+      img_src: "/images/cards/parapac.png",
+      img_alt: "Screenshot of ghosts chasing the player down",
+
+      project_lang: "python",
+      project_src: "https://github.com/SSS-Says-Snek/ParaPac",
+      project_spotlight: "https://sss-says-snek.itch.io/parapac"
+    },
+
+    {
+      title: "Dave's Anniversary",
+      date_created: "Jul 2022",
+      authors: [
+        {
+          link: "https://github.com/blankRiot96",
+          name: "Axis"
+        },
+        {
+          link: "https://github.com/pycoinfu",
+          name: "disa"
+        }
+      ],
+      description: "A 2D platformer game based on otherworldly dimensions and parkour. Made in 7 days for the 2022 Pygame Community Summer Team jam.",
+      img_src: "/images/cards/daves-anniversary.png",
+      img_alt: "Screenshot of a green dimension in game",
+
+      project_lang: "python",
+      project_src: "https://github.com/blankRiot96/Daves-Anniversary",
+      project_spotlight: "https://sss-says-snek.itch.io/daves-anniversary"
     }
   ]
+
+  cards.sort((a, b) => {
+    let dateA = new Date(`01 ${a.date_created}`);
+    let dateB = new Date(`01 ${b.date_created}`);
+
+    if (dateA > dateB) {
+      return 1;
+    } else if (dateA < dateB) {
+      return -1;
+    }
+    return 0;
+  })
+
+  let delays: Array<string> = [];
+  let delay = START_DELAY;
+  for (let _ of cards) {
+    delays.push(delay.toString());
+    delay += DELAY_AMOUNT;
+  }
 </script>
 
 <Hero>
@@ -46,8 +114,8 @@
 </Hero>
 
 <div class="cards">
-  {#each cards as card}
-    <ProjectCard {...card} />
+  {#each cards as card, idx}
+    <ProjectCard {...card} --animation-delay={delays[idx]}/>
   {/each}
 </div>
 

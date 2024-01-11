@@ -51,10 +51,9 @@
       radial-gradient(111.80px at 50% calc(100% + 100.00px),#0000 99%,#000 101%) 50% calc(100% - 50px)/200px 100% repeat-x;
     -webkit-mask: var(--mask);
     mask: var(--mask);
-
     animation: 
       hero-bg 8s ease alternate infinite,
-      hero-fade var(--transition-time) forwards;
+      hero-fade var(--transition-time) forwards,
   }
 
   @keyframes hero-bg {

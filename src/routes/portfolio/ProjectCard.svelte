@@ -14,7 +14,7 @@
   export let img_src: string;
   export let img_alt: string;
   export let project_lang: string;
-  export let authors: string = "";
+  export let authors: Array<{ name: string; link: string }> = [];
 
 
   export let project_src: string = "";
@@ -36,7 +36,14 @@
 
       <div class="icon-container authors">
         <MdiAccountMultiple style="color: var(--clr-blue);"/>
-        <h3>Me{authors ? ', ' : ''}{authors}</h3>
+        <div class="author-idk">
+          <h3>Me{authors.length == 0 ? '' : ','}</h3>
+          {#each authors as author, idx}
+            <a href={author.link}>
+              {author.name}{idx == authors.length - 1 ? '' : ','}
+            </a>
+          {/each}
+        </div>
       </div>
       
       <div class="icon-container lang">
@@ -94,6 +101,10 @@
   a {
     all: unset;
     cursor: pointer;
+    transition: all 200ms;
+  }
+  a:hover {
+    filter: brightness(0.7);
   }
 
   img {
@@ -130,6 +141,9 @@
       );
     background-origin: border-box;
     background-clip: content-box, border-box; 
+    animation: 1s ease card-fade forwards;
+    animation-delay: calc(var(--animation-delay) * 1ms);
+    opacity: 0;
 
     transition: all 400ms;
   }
@@ -167,21 +181,6 @@
   }
 
   /* EMBELLISHMENTS */
-  /* .top-rainbow {width: 100%; */
-  /*   height: 10px; */
-  /*   border-radius: 4px; */
-  /*   background-image: repeating-linear-gradient(to right, */
-  /*     #c4e17f 0px, #c4e17f 50px, */
-  /*     #f7fdca 50px, #f7fdca 100px, */
-  /*     #fad071 100px, #fad071 150px, */
-  /*     #f0766b 150px, #f0766b 200px, */
-  /*     #db9dbe 200px, #db9dbe 250px, */
-  /*     #c49cdf 250px, #c49cdf 300px, */
-  /*     #6599e2 300px, #6599e2 350px, */
-  /*     #61c2e4 350px, #61c2e4 400px); */
-  /*   background-size: 100% 10px; */
-  /* } */
-
   .date, .authors, .lang {
     font-weight: 600;
   }
@@ -192,6 +191,11 @@
 
   .authors {
     color: var(--clr-blue);
+  }
+
+  .author-idk {
+    display: flex;
+    gap: 0.5ch;
   }
 
   .lang {
@@ -223,5 +227,14 @@
   }
   .button-link:hover {
     scale: 1.1;
+  }
+
+  @keyframes card-fade {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
   }
 </style>

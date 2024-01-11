@@ -18,7 +18,7 @@
 
     {
       title: "Math",
-      description: "I take lots of interest in math, and have participated profusely in competition math. However, I also love self-learning maay fields of math, such as calculus.",
+      description: "I take lots of interest in math, and have participated profusely in competition math. However, I also love self-learning many fields of math, such as calculus.",
 
       img_src: "/images/cards/math.png",
       img_alt: "Math"
