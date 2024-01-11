@@ -86,6 +86,18 @@
       project_lang: "python",
       project_src: "https://github.com/blankRiot96/Daves-Anniversary",
       project_spotlight: "https://sss-says-snek.itch.io/daves-anniversary"
+    },
+
+    {
+      title: "Chunglang",
+      date_created: "Feb 2023",
+      description: "A high-level toy programming language designed for ease of use.",
+      img_src: "/images/cards/chunglang.png",
+      img_alt: "Screenshot of the Chunglang Programming Language source code",
+      
+      project_lang: "c++",
+      project_src: "https://github.com/SSS-Says-Snek/chungussy-lang",
+      project_unfinished: true
     }
   ]
 

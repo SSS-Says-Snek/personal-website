@@ -7,6 +7,7 @@
   import MdiLanguagePython from '~icons/mdi/language-python'
   import MdiLightbulbQuestionOutline from '~icons/mdi/lightbulb-question-outline'
   import MdiFile from '~icons/mdi/file'
+  import MdiLanguageCpp from '~icons/mdi/language-cpp'
 
   export let title: string;
   export let date_created: string;
@@ -20,10 +21,16 @@
   export let project_src: string = "";
   export let project_spotlight: string = "";
   export let project_docs: string = "";
+  export let project_unfinished: boolean = false;
 </script>
 
 <div class="card">
-  <div class="top-rainbow" />
+  {#if project_unfinished}
+    <div class="info-unfinished">
+      <h3>Project in Progress</h3>
+    </div>
+  {/if}
+
   <div class="img-container"><img class="img-darken" src={img_src} alt={img_alt}></div>
   <div class="info">
     <h2 class="title">{title}</h2>
@@ -50,6 +57,8 @@
         {#if project_src}
           {#if project_lang == "python"}
             <MdiLanguagePython />
+          {:else if project_lang == "c++"}
+            <MdiLanguageCpp />
           {:else if project_lang == "text"}
             <MdiFile />
           {/if}
@@ -120,6 +129,7 @@
   }
 
   .card {
+    position: relative;
     border-radius: 1rem;
     border: double 3px transparent;
     overflow: hidden;
@@ -161,6 +171,20 @@
 
     gap: 0.5rem;
     padding-inline: 1rem;
+  }
+
+  .info-unfinished {
+    position: absolute;
+    background-color: hsl(var(--clr-hsl-peach), 0.7);
+    z-index: 1;
+
+    left: 0;
+    right: 0;
+
+    text-align: right;
+    font-weight: 700;
+    font-style: italic;
+    padding: 0.25rem 1rem;
   }
 
   .details {

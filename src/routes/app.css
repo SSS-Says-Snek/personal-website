@@ -15,6 +15,7 @@
   --clr-hsl-peach: 23, 92%, 75%;
   --clr-hsl-pink: 316, 72%, 86%;
   --clr-hsl-red: 343, 81%, 75%;
+  --clr-hsl-subtext: 228, 24%, 72%;
 
   --clr-base: hsl(var(--clr-hsl-base));
   --clr-text: hsl(var(--clr-hsl-text));
@@ -31,6 +32,7 @@
   --clr-peach: hsl(var(--clr-hsl-peach));
   --clr-pink: hsl(var(--clr-hsl-pink));
   --clr-red: hsl(var(--clr-hsl-pink));
+  --clr-subtext: hsl(var(--clr-hsl-subtext));
 }
 
 body {
