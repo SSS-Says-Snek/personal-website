@@ -53,7 +53,7 @@
     mask: var(--mask);
     animation: 
       hero-bg 8s ease alternate infinite,
-      hero-fade var(--transition-time) forwards,
+      hero-fade var(--transition-time) forwards;
   }
 
   @keyframes hero-bg {
