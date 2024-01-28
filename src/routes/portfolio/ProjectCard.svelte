@@ -190,6 +190,8 @@
   .details {
     display: flex;
     gap: 1rem;
+    flex-flow: wrap;
+    justify-content: center;
   }
 
   .icon-container {
