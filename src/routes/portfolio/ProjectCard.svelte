@@ -8,6 +8,7 @@
   import MdiLightbulbQuestionOutline from '~icons/mdi/lightbulb-question-outline'
   import MdiFile from '~icons/mdi/file'
   import MdiLanguageCpp from '~icons/mdi/language-cpp'
+  import MdiPlusBox from '~icons/mdi/plus-box';
 
   export let title: string;
   export let date_created: string;
@@ -17,11 +18,26 @@
   export let project_lang: string;
   export let authors: Array<{ name: string; link: string }> = [];
 
+  let all_authors = [{ name: "Me", link: ""}].concat(authors);
 
   export let project_src: string = "";
   export let project_spotlight: string = "";
   export let project_docs: string = "";
   export let project_unfinished: boolean = false;
+
+  const NUM_AUTHOR_DETAILS = 2;
+
+  let extra_authors: Array<{ name: string; link: string }> = [];
+  if (all_authors.length > NUM_AUTHOR_DETAILS) { // Gotta include myself
+    for (let i = NUM_AUTHOR_DETAILS; i < all_authors.length; i++) {
+      extra_authors.push(all_authors[i]);
+    }
+  }
+
+  let extra_authors_tooltip = "";
+  for (let i = 0; i < extra_authors.length; i++) {
+    extra_authors_tooltip += extra_authors[i].name + (i == extra_authors.length - 1 ? "" : ", ");
+  }
 </script>
 
 <div class="card">
@@ -44,13 +60,23 @@
       <div class="icon-container authors">
         <MdiAccountMultiple style="color: var(--clr-blue);"/>
         <div class="author-idk">
-          <h3>Me{authors.length == 0 ? '' : ','}</h3>
-          {#each authors as author, idx}
-            <a href={author.link}>
-              {author.name}{idx == authors.length - 1 ? '' : ','}
-            </a>
+          {#each all_authors as author, idx}
+            {#if idx < NUM_AUTHOR_DETAILS}
+              <a href={author.link}>
+                {author.name}{idx == Math.min(
+                  all_authors.length - 1, NUM_AUTHOR_DETAILS - 1
+                ) ? '' : ','} 
+              </a>
+            {/if}
+
           {/each}
         </div>
+
+        {#if extra_authors.length > 0}
+          <div class="extra-authors-tooltip" data-tooltip={extra_authors_tooltip}>
+            <MdiPlusBox />
+          </div>
+        {/if}
       </div>
       
       <div class="icon-container lang">
@@ -197,6 +223,7 @@
   .icon-container {
     display: flex;
     gap: 0.125rem;
+    align-items: center;
   }
 
   .links {
@@ -222,6 +249,39 @@
   .author-idk {
     display: flex;
     gap: 0.5ch;
+  }
+
+  .extra-authors-tooltip {
+    position: relative;
+    margin-left: 0.25ch;
+    font-size: 0.75em;
+
+    transition: all 200ms;
+  }
+  .extra-authors-tooltip:hover {
+  }
+
+  .extra-authors-tooltip::before {
+    --scale: 0;
+
+    content: attr(data-tooltip);
+    font-size: 1rem;
+    width: max-content;
+
+    position: absolute;
+    top: -15px;
+    padding: 0.25rem;
+
+    background: hsl(234, 13%, 31%);
+    border-radius: 0.25rem;
+
+    transform: translateX(-50%) translateY(-50%) scale(var(--scale));
+    transform-origin: bottom center;
+    transition: 200ms all;
+  }
+  .extra-authors-tooltip:hover::before,
+  .extra-authors-tooltip:active::before {
+    --scale: 1;
   }
 
   .lang {
