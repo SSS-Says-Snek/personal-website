@@ -1,5 +1,8 @@
 <script lang="ts">
+  import { genAnimationDelays } from "$lib";
+
   import Hero from "$lib/Hero.svelte";
+  import Delay from "$lib/Delay.svelte";
   import PercentBar from "./PercentBar.svelte";
 
   interface skill { name: string, percentage: number, tags: Array<string> };
@@ -9,6 +12,9 @@
     else if (a.percentage > b.percentage) { return -1;}
     return 0;
   }
+
+  const START_DELAY = 500;
+  const DELAY_AMOUNT = 100;
 
   let allSkills = [
     {
@@ -83,10 +89,24 @@
 
     {
       name: "Music",
-      percentage: 60,
+      percentage: 70,
       proficiency: "Intermediate-Advanced",
       subskills: [
-
+        {
+          name: "Piano",
+          percentage: 80,
+          tags: ["learning"]
+        },
+        {
+          name: "Trombone",
+          percentage: 68,
+          tags: []
+        },
+        {
+          name: "Music Theory",
+          percentage: 64,
+          tags: []
+        }
       ]
     }
   ];
@@ -94,6 +114,8 @@
   for (let skill of allSkills) {
     skill.subskills.sort(skillSorter);
   }
+
+  let cardDelays = genAnimationDelays(allSkills.length, START_DELAY, DELAY_AMOUNT);
 </script>
 
 <Hero>
@@ -101,29 +123,31 @@
 </Hero>
 
 <div class="container">
-  {#each allSkills as skill}
-    <section class="skill-group-info">
-      <div class="heading">
-        <h2>{skill.name}</h2>
+  {#each allSkills as skill, idx}
+    <Delay animation_delay_ms={cardDelays[idx]}>
+      <section class="skill-group-info">
+        <div class="heading">
+          <h2>{skill.name}</h2>
 
-        <div class="skill-proficiency">
-          <h3>{skill.proficiency}</h3>
-          <PercentBar width="275" percentage={skill.percentage}/>
+          <div class="skill-proficiency">
+            <h3>{skill.proficiency}</h3>
+            <PercentBar width="275" percentage={skill.percentage}/>
+          </div>
         </div>
-      </div>
 
-      <ul class="subskills">
-        {#each skill.subskills as subskill}
-          <li class="subskill">
-            <h4>{subskill.name}</h4>
-            <PercentBar
-              percentage={subskill.percentage}
-              learning={subskill.tags.includes("learning")} 
-            />
-          </li>
-        {/each}
-      </ul>
-    </section>
+        <ul class="subskills">
+          {#each skill.subskills as subskill}
+            <li class="subskill">
+              <h4>{subskill.name}</h4>
+              <PercentBar
+                percentage={subskill.percentage}
+                learning={subskill.tags.includes("learning")} 
+              />
+            </li>
+          {/each}
+        </ul>
+      </section>
+    </Delay>
   {/each}
 </div>
 
