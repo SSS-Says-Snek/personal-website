@@ -17,6 +17,7 @@
   --clr-hsl-red: 343, 81%, 75%;
   --clr-hsl-subtext: 228, 24%, 72%;
   --clr-hsl-overlay: 231, 11%, 47%;
+  --clr-hsl-yellow: 41, 86%, 83%;
 
   --clr-base: hsl(var(--clr-hsl-base));
   --clr-text: hsl(var(--clr-hsl-text));
@@ -32,9 +33,10 @@
   --clr-mantle: hsl(var(--clr-hsl-mantle));
   --clr-peach: hsl(var(--clr-hsl-peach));
   --clr-pink: hsl(var(--clr-hsl-pink));
-  --clr-red: hsl(var(--clr-hsl-pink));
+  --clr-red: hsl(var(--clr-hsl-red));
   --clr-subtext: hsl(var(--clr-hsl-subtext));
   --clr-overlay: hsl(var(--clr-hsl-overlay));
+  --clr-yellow: hsl(var(--clr-hsl-yellow));
 }
 
 body {
@@ -44,7 +46,7 @@ body {
   background-color: var(--clr-base);
   color: var(--clr-text);
 
-  max-width: min(60rem, 100% - 6rem);
+  max-width: min(var(--max-content-size, 60rem), 100% - 6rem);
   margin-inline: auto;
 }
 

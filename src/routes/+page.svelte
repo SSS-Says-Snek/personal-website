@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import MdiYoutube from '~icons/mdi/youtube'
   import MdiReddit from '~icons/mdi/reddit'
   import MdiDiscord from '~icons/mdi/discord'
@@ -43,7 +43,7 @@
         Since 2018
       </h2>
 
-      <Button text="Go to Portfolio" href="/portfolio" />
+      <Button text="Go to Projects" href="/projects" />
     </div>
 
     <Image src="/images/programming.png"

@@ -3,7 +3,10 @@
   import MdiSchoolOutline from '~icons/mdi/school-outline'
 
   import Hero from "$lib/Hero.svelte";
+  import Delay from '$lib/Delay.svelte';
   import Card from "./Card.svelte";
+
+  import { genAnimationDelays } from '$lib';
 
   const START_DELAY = 500;
   const DELAY_AMOUNT = 100;
@@ -32,14 +35,8 @@
       img_alt: "A photo of me"
     },
   ]
-  let card_delays: Array<String> = []
 
-  // Including the first one
-  let delay = START_DELAY + DELAY_AMOUNT;
-  for (let _ of cards) {
-    card_delays.push(delay.toString())
-    delay += DELAY_AMOUNT;
-  }
+  let cardDelays = genAnimationDelays(cards.length, START_DELAY + DELAY_AMOUNT, DELAY_AMOUNT);
 </script>
 
 <Hero
@@ -52,27 +49,28 @@
 </Hero>
 
 <div class="cards">
-  <Card 
-    title="Hey, I'm Brandon!"
-    description="I'm currently a high school student somewhere in Alabama, and like to do nerdy stuff like programming and math."
-    
-    img_src="/images/cards/literally-me.png"
-    img_alt="A photo of me"
-    --animation-delay="{START_DELAY}"
-  >
-    <div class="icon-container age">
-      <MdiCakeVariant />
-      <p>16</p>
-    </div>
+  <Delay animation_delay_ms={START_DELAY}>
+    <Card 
+      title="Hey, I'm Brandon!"
+      description="I'm currently a high school student somewhere in Alabama, and like to do nerdy stuff like programming and math."
 
-    <div class="icon-container grade">
-      <MdiSchoolOutline />
-      <p>Sophomore</p>
-    </div>
-  </Card>
+      img_src="/images/cards/literally-me.png"
+      img_alt="A photo of me"
+    >
+      <div class="icon-container age">
+        <MdiCakeVariant />
+        <p>16</p>
+      </div>
+
+      <div class="icon-container grade">
+        <MdiSchoolOutline />
+        <p>Sophomore</p>
+      </div>
+    </Card>
+  </Delay>
 
   {#each cards as card, idx}
-    <Card {...card} --animation-delay="{card_delays[idx]}"/>
+    <Delay animation_delay_ms={cardDelays[idx]}><Card {...card}/></Delay>
   {/each}
 </div>
 

@@ -1,6 +1,8 @@
 <script lang="ts">
   import Hero from "$lib/Hero.svelte";
+  import Delay from "$lib/Delay.svelte";
   import ProjectCard from "./ProjectCard.svelte";
+    import { genAnimationDelays } from "$lib";
 
   const START_DELAY = 500;
   const DELAY_AMOUNT = 100;
@@ -113,21 +115,18 @@
     return 0;
   })
 
-  let delays: Array<string> = [];
-  let delay = START_DELAY;
-  for (let _ of cards) {
-    delays.push(delay.toString());
-    delay += DELAY_AMOUNT;
-  }
+  let delays = genAnimationDelays(cards.length, START_DELAY, DELAY_AMOUNT);
 </script>
 
 <Hero>
-  <h1>Portfolio</h1>
+  <h1>Projects</h1>
 </Hero>
 
 <div class="cards">
   {#each cards as card, idx}
-    <ProjectCard {...card} --animation-delay={delays[idx]}/>
+    <Delay animation_delay_ms={delays[idx]}>
+      <ProjectCard {...card}/>
+    </Delay>
   {/each}
 </div>
 

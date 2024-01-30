@@ -56,11 +56,8 @@
     );
     background-origin: border-box;
     background-clip: content-box, border-box; 
-    opacity: 0;
 
     transition: all 400ms;
-    animation: 1s ease card-fade forwards;
-    animation-delay: calc(var(--animation-delay) * 1ms);
   }
   .card:hover {
     scale: 1.05;
@@ -72,14 +69,4 @@
     gap: 1rem;
     justify-content: center;
   }
-
-  @keyframes card-fade {
-    from {
-      opacity: 0;
-    }
-    to {
-      opacity: 1;
-    }
-  }
-
 </style>
