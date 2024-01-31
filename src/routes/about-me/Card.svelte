@@ -2,8 +2,8 @@
   export let title: string;
   export let description: string;
 
-  export let img_src: string;
-  export let img_alt: string;
+  export let imgSrc: string;
+  export let imgAlt: string;
 </script>
 
 <div class="card">
@@ -11,7 +11,7 @@
   <div class="icon-details">
     <slot />
   </div>
-  <img src={img_src} alt={img_alt}>
+  <img src={imgSrc} alt={imgAlt}>
   <p>{description}</p>
 </div>
 

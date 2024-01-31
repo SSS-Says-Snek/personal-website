@@ -1,10 +1,10 @@
 <script lang="ts">
-  export let fade_duration: number = 1;
-  export let animation_delay_ms: number;
+  export let fadeDuration: number = 1;
+  export let animationDelayMs: number;
 </script>
 
 <div class="delay-anim"
-  style="--fade-duration: {fade_duration}; --animation-delay: {animation_delay_ms};"
+  style="--fade-duration: {fadeDuration}; --animation-delay: {animationDelayMs};"
 >
   <slot />
 </div>
@@ -16,7 +16,6 @@
 
     opacity: 0;
     width: 100%;
-    height: 100%;
   }
 
   @keyframes fade {

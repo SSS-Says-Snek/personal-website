@@ -10,8 +10,6 @@
   export let learning: boolean = false;
   const LEARNING_TEXT = learning ? "Learning.." : "";
 
-  console.log(LEARNING_TEXT);
-
   if (color == DEFAULT_COLOR) {
     if (percentage > 75) { color = "var(--clr-mauve)"; }
     else if (percentage > 60) { color = "var(--clr-green)"; }

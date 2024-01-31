@@ -9,46 +9,46 @@
   let cards = [
     {
       title: "Hisock",
-      date_created: "Sep 2021",
+      dateCreated: "Sep 2021",
       authors: [{
         link: "https://github.com/sheepy0125",
         name: "sheepy0125"
       }],
       description: "A higher level extension of Python's built-in socket module, with simpler and more efficient usages.",
-      img_src: "/images/cards/hisock.png",
-      img_alt: "Screenshot of an ongoing Connect Four game made with Hisock",
+      imgSrc: "/images/cards/hisock.png",
+      imgAlt: "Screenshot of an ongoing Connect Four game made with Hisock",
 
-      project_lang: "python",
-      project_src: "https://github.com/SSS-Says-Snek/hisock",
-      project_spotlight: "https://www.youtube.com/watch?v: UVYoySkm8ZU",
-      project_docs: "https://hisock.readthedocs.io",
+      projectLang: "python",
+      projectSrc: "https://github.com/SSS-Says-Snek/hisock",
+      projectSpotlight: "https://www.youtube.com/watch?v: UVYoySkm8ZU",
+      projectDocs: "https://hisock.readthedocs.io",
     },
 
     {
       title: "Hisock Chat App",
-      date_created: "Jul 2023",
+      dateCreated: "Jul 2023",
       description: "A much-improved overhaul of a 2020 chat app I made, with video technology, direct messages, and global messages. Built with PyQt5 and hisock.",
-      img_src: "/images/cards/hisock-chat-app.png",
-      img_alt: "Screenshot of an ongoing Connect Four game made with Hisock",
+      imgSrc: "/images/cards/hisock-chat-app.png",
+      imgAlt: "Screenshot of an ongoing Connect Four game made with Hisock",
 
-      project_lang: "python",
-      project_src: "https://github.com/SSS-Says-Snek/hisock-voip-app",
+      projectLang: "python",
+      projectSrc: "https://github.com/SSS-Says-Snek/hisock-voip-app",
     },
 
     {
       title: "Hyprland Rice",
-      date_created: "Dec 2023",
+      dateCreated: "Dec 2023",
       description: "A complete customization of the Hyprland \"Window Manager\". Includes bar, app launcher, power menu, neovim, login manager, and terminal configurations.",
-      img_src: "/images/cards/rice.png",
-      img_alt: "Screenshot of the fully configured desktop",
+      imgSrc: "/images/cards/rice.png",
+      imgAlt: "Screenshot of the fully configured desktop",
 
-      project_lang: "text",
-      project_src: "https://github.com/SSS-Says-Snek/dotfiles"
+      projectLang: "text",
+      projectSrc: "https://github.com/SSS-Says-Snek/dotfiles"
     },
 
     {
       title: "ParaPac",
-      date_created: "Jul 2021",
+      dateCreated: "Jul 2021",
       authors: [
         {
           link: "https://github.com/avaxar",
@@ -60,17 +60,17 @@
         }
       ],
       description: "A multidimensional Pac-Man spinoff, with a few twists. Made in 7 days for the 2021 Pygame Community Summer Team jam.",
-      img_src: "/images/cards/parapac.png",
-      img_alt: "Screenshot of ghosts chasing the player down",
+      imgSrc: "/images/cards/parapac.png",
+      imgAlt: "Screenshot of ghosts chasing the player down",
 
-      project_lang: "python",
-      project_src: "https://github.com/SSS-Says-Snek/ParaPac",
-      project_spotlight: "https://sss-says-snek.itch.io/parapac"
+      projectLang: "python",
+      projectSrc: "https://github.com/SSS-Says-Snek/ParaPac",
+      projectSpotlight: "https://sss-says-snek.itch.io/parapac"
     },
 
     {
       title: "Dave's Anniversary",
-      date_created: "Jul 2022",
+      dateCreated: "Jul 2022",
       authors: [
         {
           link: "https://github.com/blankRiot96",
@@ -82,30 +82,30 @@
         }
       ],
       description: "A 2D platformer game based on otherworldly dimensions and parkour. Made in 7 days for the 2022 Pygame Community Summer Team jam.",
-      img_src: "/images/cards/daves-anniversary.png",
-      img_alt: "Screenshot of a green dimension in game",
+      imgSrc: "/images/cards/daves-anniversary.png",
+      imgAlt: "Screenshot of a green dimension in game",
 
-      project_lang: "python",
-      project_src: "https://github.com/blankRiot96/Daves-Anniversary",
-      project_spotlight: "https://sss-says-snek.itch.io/daves-anniversary"
+      projectLang: "python",
+      projectSrc: "https://github.com/blankRiot96/Daves-Anniversary",
+      projectSpotlight: "https://sss-says-snek.itch.io/daves-anniversary"
     },
 
     {
       title: "Chunglang",
-      date_created: "Feb 2023",
+      dateCreated: "Feb 2023",
       description: "A high-level toy programming language designed for ease of use.",
-      img_src: "/images/cards/chunglang.png",
-      img_alt: "Screenshot of the Chunglang Programming Language source code",
+      imgSrc: "/images/cards/chunglang.png",
+      imgAlt: "Screenshot of the Chunglang Programming Language source code",
       
-      project_lang: "c++",
-      project_src: "https://github.com/SSS-Says-Snek/chungussy-lang",
-      project_unfinished: true
+      projectLang: "c++",
+      projectSrc: "https://github.com/SSS-Says-Snek/chungussy-lang",
+      projectUnfinished: true
     }
   ]
 
   cards.sort((a, b) => {
-    let dateA = new Date(`01 ${a.date_created}`);
-    let dateB = new Date(`01 ${b.date_created}`);
+    let dateA = new Date(`01 ${a.dateCreated}`);
+    let dateB = new Date(`01 ${b.dateCreated}`);
 
     if (dateA > dateB) {
       return 1;
@@ -124,7 +124,7 @@
 
 <div class="cards">
   {#each cards as card, idx}
-    <Delay animation_delay_ms={delays[idx]}>
+    <Delay animationDelayMs={delays[idx]}>
       <ProjectCard {...card}/>
     </Delay>
   {/each}

@@ -11,22 +11,21 @@
   import MdiPlusBox from '~icons/mdi/plus-box';
 
   export let title: string;
-  export let date_created: string;
+  export let dateCreated: string;
   export let description: string;
-  export let img_src: string;
-  export let img_alt: string;
-  export let project_lang: string;
+  export let imgSrc: string;
+  export let imgAlt: string;
+  export let projectLang: string;
   export let authors: Array<{ name: string; link: string }> = [];
 
   let allAuthors = [{ name: "Me", link: ""}].concat(authors);
 
-  export let project_src: string = "";
-  export let project_spotlight: string = "";
-  export let project_docs: string = "";
-  export let project_unfinished: boolean = false;
+  export let projectSrc: string = "";
+  export let projectSpotlight: string = "";
+  export let projectDocs: string = "";
+  export let projectUnfinished: boolean = false;
 
   const NUM_AUTHOR_DETAILS = 2;
-
   let extraAuthors: Array<{ name: string; link: string }> = [];
   if (allAuthors.length > NUM_AUTHOR_DETAILS) { // Gotta include myself
     for (let i = NUM_AUTHOR_DETAILS; i < allAuthors.length; i++) {
@@ -41,20 +40,20 @@
 </script>
 
 <div class="card">
-  {#if project_unfinished}
+  {#if projectUnfinished}
     <div class="info-unfinished">
       <h3>Project in Progress</h3>
     </div>
   {/if}
 
-  <div class="img-container"><img class="img-darken" src={img_src} alt={img_alt}></div>
+  <div class="img-container"><img class="img-darken" src={imgSrc} alt={imgAlt}></div>
   <div class="info">
     <h2 class="title">{title}</h2>
 
     <div class="details date">
       <div class="icon-container">
         <MdiCalendarToday style="color: var(--clr-mauve);"/>
-        <h3>{date_created}</h3>
+        <h3>{dateCreated}</h3>
       </div>
 
       <div class="icon-container authors">
@@ -80,40 +79,40 @@
       </div>
 
       <div class="icon-container lang">
-        {#if project_src}
-          {#if project_lang == "python"}
+        {#if projectSrc}
+          {#if projectLang == "python"}
             <MdiLanguagePython />
-            {:else if project_lang == "c++"}
+            {:else if projectLang == "c++"}
             <MdiLanguageCpp />
-            {:else if project_lang == "text"}
+            {:else if projectLang == "text"}
             <MdiFile />
           {/if}
         {:else}
           <MdiLightbulbQuestionOutline />
         {/if}
-        <h3>{project_lang}</h3>
+        <h3>{projectLang}</h3>
       </div>
     </div>
 
     <div class="links">
-      {#if project_src}
-        <a href={project_src}>
+      {#if projectSrc}
+        <a href={projectSrc}>
           <button class="button-link icon-container">
             <MdiApplicationBracketsOutline />
             Source Code
           </button>
         </a>
       {/if}
-      {#if project_spotlight}
-        <a href={project_spotlight}>
+      {#if projectSpotlight}
+        <a href={projectSpotlight}>
           <button class="button-link icon-container">
             <MdiYoutube />
             Spotlight
           </button>
         </a>
       {/if}
-      {#if project_docs}
-        <a href={project_docs}>
+      {#if projectDocs}
+        <a href={projectDocs}>
           <button class="button-link icon-container">
             <MdiFileDocument />
             Docs

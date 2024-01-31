@@ -15,24 +15,24 @@
       title: "Programming",
       description: "I had began \"programming\" in 2016, but actually got into Python in early 2018. Since then, I've learnt many things and built several projects!",
 
-      img_src: "/images/cards/programming.png",
-      img_alt: "A screenshot of code of a project of mine"
+      imgSrc: "/images/cards/programming.png",
+      imgAlt: "A screenshot of code of a project of mine"
     },
 
     {
       title: "Math",
       description: "I take lots of interest in math, and have participated profusely in competition math. However, I also love self-learning many fields of math, such as calculus.",
 
-      img_src: "/images/cards/math.png",
-      img_alt: "Math"
+      imgSrc: "/images/cards/math.png",
+      imgAlt: "Math"
     },
 
     {
       title: "Piano",
       description: "Since 2015, I have played piano. I enjoy both performing and listening to classical music.",
 
-      img_src: "/images/cards/piano.png",
-      img_alt: "A photo of me"
+      imgSrc: "/images/cards/piano.png",
+      imgAlt: "A photo of me"
     },
   ]
 
@@ -49,13 +49,13 @@
 </Hero>
 
 <div class="cards">
-  <Delay animation_delay_ms={START_DELAY}>
+  <Delay animationDelayMs={START_DELAY}>
     <Card 
       title="Hey, I'm Brandon!"
       description="I'm currently a high school student somewhere in Alabama, and like to do nerdy stuff like programming and math."
 
-      img_src="/images/cards/literally-me.png"
-      img_alt="A photo of me"
+      imgSrc="/images/cards/literally-me.png"
+      imgAlt="A photo of me"
     >
       <div class="icon-container age">
         <MdiCakeVariant />
@@ -70,7 +70,7 @@
   </Delay>
 
   {#each cards as card, idx}
-    <Delay animation_delay_ms={cardDelays[idx]}><Card {...card}/></Delay>
+    <Delay animationDelayMs={cardDelays[idx]}><Card {...card}/></Delay>
   {/each}
 </div>
 

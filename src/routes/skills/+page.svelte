@@ -2,12 +2,11 @@
   import { genAnimationDelays } from "$lib";
 
   import Hero from "$lib/Hero.svelte";
-  import Delay from "$lib/Delay.svelte";
-  import PercentBar from "./PercentBar.svelte";
+  import SkillCard from "./SkillCard.svelte";
 
-  interface skill { name: string, percentage: number, tags: Array<string> };
+  import type { Subskill, Skill } from "./interfaces";
 
-  function skillSorter(a: skill, b: skill) {
+  function skillSorter(a: Subskill, b: Subskill) {
     if (a.percentage < b.percentage) { return 1; }
     else if (a.percentage > b.percentage) { return -1;}
     return 0;
@@ -16,7 +15,8 @@
   const START_DELAY = 500;
   const DELAY_AMOUNT = 100;
 
-  let allSkills = [
+  // Trust me it's not confusing at all :(
+  let allSkills: Array<Skill> = [
     {
       name: "Programming",
       percentage: 85,
@@ -84,6 +84,22 @@
           percentage: 75,
           tags: []
         }
+      ],
+
+      relatedSkills: [
+        {
+          name: "Python",
+          percentage: 95,
+          proficiency: "Advanced",
+          borderColor: "var(--clr-mauve)",
+          subskills: [
+            {
+              name: "Pygame",
+              percentage: 4,
+              tags: []
+            }
+          ]
+        }
       ]
     },
 
@@ -107,15 +123,18 @@
           percentage: 64,
           tags: []
         }
-      ]
+      ],
+      relatedSkills: []
     }
   ];
 
+  let totalSkills = 0;
   for (let skill of allSkills) {
     skill.subskills.sort(skillSorter);
+    totalSkills += 1 + skill.relatedSkills.length;
   }
 
-  let cardDelays = genAnimationDelays(allSkills.length, START_DELAY, DELAY_AMOUNT);
+  let cardDelays = genAnimationDelays(totalSkills, START_DELAY, DELAY_AMOUNT);
 </script>
 
 <Hero>
@@ -124,139 +143,17 @@
 
 <div class="container">
   {#each allSkills as skill, idx}
-    <Delay animation_delay_ms={cardDelays[idx]}>
-      <section class="skill-group-info">
-        <div class="heading">
-          <h2>{skill.name}</h2>
-
-          <div class="skill-proficiency">
-            <h3>{skill.proficiency}</h3>
-            <PercentBar width="275" percentage={skill.percentage}/>
-          </div>
-        </div>
-
-        <ul class="subskills">
-          {#each skill.subskills as subskill}
-            <li class="subskill">
-              <h4>{subskill.name}</h4>
-              <PercentBar
-                percentage={subskill.percentage}
-                learning={subskill.tags.includes("learning")} 
-              />
-            </li>
-          {/each}
-        </ul>
-      </section>
-    </Delay>
+    <SkillCard {...skill} animationDelayMs={cardDelays[idx]}/>
   {/each}
 </div>
 
 <style>
-  h2 {
-    font-size: 2rem;
-  }
-
-  section {
-    border-radius: 8px;
-    border: 2px solid transparent;
-    background: linear-gradient(135deg,
-      var(--clr-black),
-      var(--clr-mantle),
-      var(--clr-surface)
-      ),
-      conic-gradient(
-      from var(--border-angle, 0deg),
-      var(--clr-red),
-      var(--clr-peach),
-      var(--clr-green),
-      var(--clr-sky),
-      var(--clr-blue),
-      var(--clr-mauve),
-      var(--clr-red)
-      );
-    background-origin: border-box;
-    background-clip: padding-box, border-box; 
-
-    padding: 1rem;
-  }
-
-  :global(body) {
-    --max-content-size: 50rem;
-  }
-
   .container {
     display: flex;
     flex-direction: column;
     gap: 3rem;
-  }
 
-  .skill-group-info {
-    display: flex;
-    flex-direction: column;
-    gap: 2rem;
-  }
-
-  .heading {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .skill-proficiency {
-    display: flex;
-    align-items: center;
-  }
-
-  .skill-proficiency h3 {
-    font-weight: 600;
-    display: none;
-  }
-
-  .subskills {
-    padding: 0;
-    list-style-type: none;
-
-    display: grid;
-    place-items: center;
-    gap: 1.25rem;
-  }
-
-  .subskill {
-    text-align: center;
-  }
-
-  .subskill h4 {
-    font-weight: 600;
-  }
-
-  @media (width > 600px) {
-    .subskills {
-      max-width: fit-content;
-      grid-template-columns: 1fr 1fr;
-      place-items: end;
-      margin-inline: auto;
-    }
-  }
-
-  @media (width > 800px) {
-    .heading {
-      flex-direction: row;
-      justify-content: space-between;
-    }
-
-    .skill-proficiency {
-      flex-direction: row;
-      gap: 0.5rem;
-    }
-
-    .skill-proficiency h3 {
-      display: unset;
-    }
-
-    .subskill {
-      display: flex;
-      gap: 1rem;
-    }
-
+    max-width: 50rem;
+    margin-inline: auto;
   }
 </style>
