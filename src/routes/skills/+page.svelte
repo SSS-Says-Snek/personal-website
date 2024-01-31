@@ -128,6 +128,36 @@
     },
 
     {
+      name: "Nerdy Things",
+      percentage: 75,
+      proficiency: "Interested",
+      subskills: [
+        {
+          "name": "Mathematics",
+          "percentage": 85,
+          tags: ["learning"]
+        },
+        {
+          "name": "Electronics",
+          "percentage": 30,
+          tags: []
+        },
+        {
+          "name": "Science",
+          "percentage": 74,
+          tags: []
+        },
+        {
+          "name": "Scholar's Bowl",
+          "percentage": 76,
+          tags: []
+        }
+      ],
+      relatedSkills: []
+    },
+
+
+    {
       name: "Music",
       percentage: 70,
       proficiency: "Intermediate-Advanced",
@@ -146,7 +176,26 @@
           name: "Music Theory",
           percentage: 64,
           tags: []
+        },
+        {
+          name: "Composing",
+          percentage: 20,
+          tags: []
         }
+      ],
+      relatedSkills: []
+    },
+
+    {
+      name: "Miscellaneous",
+      percentage: 100,
+      proficiency: "???",
+      subskills: [
+        {
+          "name": "Art",
+          percentage: 30,
+          tags: ["learning"]
+        },
       ],
       relatedSkills: []
     }
