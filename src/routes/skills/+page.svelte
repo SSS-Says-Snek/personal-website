@@ -29,18 +29,8 @@
           tags: []
         },
         {
-          name: "Pygame",
-          percentage: 80,
-          tags: []
-        },
-        {
           name: "Git/Github",
           percentage: 90,
-          tags: []
-        },
-        {
-          name: "PyQt/PySide",
-          percentage: 65,
           tags: []
         },
         {
@@ -95,7 +85,41 @@
           subskills: [
             {
               name: "Pygame",
-              percentage: 4,
+              percentage: 80,
+              tags: []
+            },
+            {
+              name: "PyQt/PySide",
+              percentage: 65,
+              tags: []
+            },
+            {
+              name: "Socket",
+              percentage: 75,
+              tags: []
+            },
+            {
+              name: "Python C API",
+              percentage: 60,
+              tags: []
+            },
+            {
+              name: "Discord.py",
+              percentage: 55,
+              tags: []
+            }
+          ]
+        },
+
+        {
+          name: "C++",
+          percentage: 65,
+          proficiency: "Beginner-Intermediate",
+          borderColor: "var(--clr-red)",
+          subskills: [
+            {
+              "name": "Qt6",
+              percentage: 0,
               tags: []
             }
           ]
@@ -131,6 +155,10 @@
   let totalSkills = 0;
   for (let skill of allSkills) {
     skill.subskills.sort(skillSorter);
+
+    for (let relatedSkill of skill.relatedSkills) {
+      relatedSkill.subskills.sort(skillSorter);
+    }
     totalSkills += 1 + skill.relatedSkills.length;
   }
 
