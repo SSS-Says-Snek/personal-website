@@ -139,6 +139,12 @@
     place-items: center;
 
     font-weight: 900;
+    align-self: center;
+    transition: all 200ms;
+  }
+
+  .related-skills-toggle:hover {
+    scale: 1.1;
   }
 
   .related-skills {
