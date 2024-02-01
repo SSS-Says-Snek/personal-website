@@ -15,7 +15,6 @@
     animation-delay: calc(var(--animation-delay) * 1ms);
 
     opacity: 0;
-    width: 100%;
   }
 
   @keyframes fade {

@@ -79,6 +79,7 @@
     display: grid;
     place-items: center;
     gap: 3rem;
+    grid-template-columns: 1fr;
   }
 
   .icon-container {
