@@ -9,6 +9,7 @@
   import MdiFile from '~icons/mdi/file'
   import MdiLanguageCpp from '~icons/mdi/language-cpp'
   import MdiPlusBox from '~icons/mdi/plus-box';
+  import MdiLanguageRust from '~icons/mdi/language-rust'
 
   export let title: string;
   export let dateCreated: string;
@@ -82,10 +83,12 @@
         {#if projectSrc}
           {#if projectLang == "python"}
             <MdiLanguagePython />
-            {:else if projectLang == "c++"}
+          {:else if projectLang == "c++"}
             <MdiLanguageCpp />
-            {:else if projectLang == "text"}
+          {:else if projectLang == "text"}
             <MdiFile />
+          {:else if projectLang == "rust"}
+            <MdiLanguageRust />
           {/if}
         {:else}
           <MdiLightbulbQuestionOutline />
@@ -142,11 +145,13 @@
 
   img {
     width: 100%;
+    height: 300px;
+
     object-fit: cover;
+    object-position: 0% 0%;
   }
 
   .img-container {
-    max-height: 300px;
     overflow: hidden;
 
     margin-bottom: 1rem;
@@ -163,16 +168,16 @@
       var(--clr-black),
       var(--clr-mantle),
       var(--clr-surface)
-    ),
+      ),
       conic-gradient(
-        from var(--border-angle, 0deg),
-        var(--clr-red),
-        var(--clr-peach),
-        var(--clr-green),
-        var(--clr-sky),
-        var(--clr-blue),
-        var(--clr-mauve),
-        var(--clr-red)
+      from var(--border-angle, 0deg),
+      var(--clr-red),
+      var(--clr-peach),
+      var(--clr-green),
+      var(--clr-sky),
+      var(--clr-blue),
+      var(--clr-mauve),
+      var(--clr-red)
       );
     background-origin: border-box;
     background-clip: content-box, border-box; 

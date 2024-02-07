@@ -100,6 +100,17 @@
       projectLang: "c++",
       projectSrc: "https://github.com/SSS-Says-Snek/chungussy-lang",
       projectUnfinished: true
+    },
+
+    {
+      title: "Chip-8 Emulator",
+      dateCreated: "Oct 2022",
+      description: "A simple Chip-8 console emulator made in Rust.",
+      imgSrc: "/images/cards/chip8.png",
+      imgAlt: "Screenshot of Corax's Opcode Chip-8 test being emulated",
+
+      projectLang: "rust",
+      projectSrc: "https://github.com/SSS-Says-Snek/chip-8"
     }
   ]
 
