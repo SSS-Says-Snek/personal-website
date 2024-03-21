@@ -111,6 +111,18 @@
 
       projectLang: "rust",
       projectSrc: "https://github.com/SSS-Says-Snek/chip-8"
+    },
+
+    {
+      title: "WHAP Mock Website",
+      dateCreated: "Dec 2022",
+      description: "A fake website for an AP World History project. It was designed to educate about several global trading routes centuries ago.",
+      imgSrc: "/images/cards/whap-website.png",
+      imgAlt: "Screenshot of the website with 3 subsections linking to other subpages",
+      
+      projectLang: "svelte",
+      projectSrc: "https://github.com/SSS-Says-Snek/whap-project",
+      projectSpotlight: "https://whap-project.vercel.app"
     }
   ]
 
@@ -141,7 +153,13 @@
   {/each}
 </div>
 
+<!-- <h2>Non-Programming Projects</h2> -->
+
 <style>
+  h2 {
+    padding: 5px;
+    text-align: center;
+  }
   .cards {
     display: grid;
     gap: 3rem;

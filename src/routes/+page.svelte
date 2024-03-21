@@ -52,6 +52,22 @@
       translucent={true} />
   </section>
 
+  <section class="" data-gap="large">
+    <div class="button-group">
+      <h2 class="description">
+        Jack of (Some) Trades<br/>
+      </h2>
+
+      <Button text="My Skills" href="/skills"
+        --clr-button="var(--clr-mauve)"/>
+    </div>
+
+    <Image src="/images/skills.jpg"
+      alt="Source code of one of my projects"
+      width="400"
+      translucent={true} />
+  </section>
+
   <section data-gap="medium">
     <div class="img-group">
       <Image src="/images/math.png"
@@ -143,6 +159,8 @@
 
   /* Cool effects */
   .skew-bg {
+    --skew-angle: -4deg;
+
     position: relative;
     padding: 4em 0;
   }
@@ -156,8 +174,12 @@
     width: 100vw;
     margin-left: calc((100% - 100vw) / 2);
 
-    transform: skewY(-4deg);
+    transform: skewY(var(--skew-angle));
     inset: 0;
+  }
+
+  .skew-bg-down {
+    --skew-angle: 4deg;
   }
 
   /* Maybe I should use a container query */

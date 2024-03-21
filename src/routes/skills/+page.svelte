@@ -26,12 +26,12 @@
         {
           name: "Python",
           percentage: 95,
-          tags: []
+          tags: [],
         },
         {
           name: "Git/Github",
           percentage: 90,
-          tags: []
+          tags: [],
         },
         {
           name: "HTML/CSS",
