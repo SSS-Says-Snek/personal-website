@@ -21,3 +21,22 @@ export type RelatedSkill = {
   subskills: Array<Subskill>;
   borderColor?: string;
 }
+
+export type Author = {
+  link: string;
+  name: string;
+}
+
+export type Card = {
+  title: string;
+  dateCreated: string;
+  authors?: Array<Author>;
+  description: string;
+  imgSrc: string;
+  imgAlt: string;
+
+  projectLang?: string;
+  projectSrc?: string;
+  projectDocs?: string;
+  projectSpotlight?: string;
+}

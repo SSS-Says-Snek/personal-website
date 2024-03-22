@@ -1,12 +1,12 @@
 <script lang="ts">
+  import type {Card} from "$lib/interfaces"
+
   import Hero from "$lib/Hero.svelte";
-  import Delay from "$lib/Delay.svelte";
   import ProjectCard from "./ProjectCard.svelte";
-    import { genAnimationDelays } from "$lib";
+  import PageEntrance from "$lib/PageEntrance.svelte";
 
   const START_DELAY = 500;
-  const DELAY_AMOUNT = 100;
-  let cards = [
+  let progCards = [
     {
       title: "Hisock",
       dateCreated: "Sep 2021",
@@ -124,21 +124,39 @@
       projectSrc: "https://github.com/SSS-Says-Snek/whap-project",
       projectSpotlight: "https://whap-project.vercel.app"
     }
-  ]
+  ];
 
-  cards.sort((a, b) => {
-    let dateA = new Date(`01 ${a.dateCreated}`);
-    let dateB = new Date(`01 ${b.dateCreated}`);
+  let nonProgCards = [
+    {
+      title: "Yünticu",
+      dateCreated: "Feb 2024",
+      description: "A constructed language (conlang) that many inhabitants of the fictional Yünticu world speak on a daily basis.",
+      imgSrc: "/images/cards/yünticu.png",
+      imgAlt: "Screenshot of a sample of text, written in the Yünticu writing script",
 
-    if (dateA > dateB) {
-      return 1;
-    } else if (dateA < dateB) {
-      return -1;
+      projectLang: "text",
+      projectDocs: "https://hurricane-cheque-70b.notion.site/Proto-Y-nticu-698ed26f640e4914823ff568b7127802",
+      projectSpotlight: "https://docs.google.com/presentation/d/1ZyT7fftf-RpGdJmcLkWA9q_GjT6X4bQHc41IY0dGEl4/edit?usp=sharing"
     }
-    return 0;
-  })
+  ];
 
-  let delays = genAnimationDelays(cards.length, START_DELAY, DELAY_AMOUNT);
+  function sortCards(list: Card[]) {
+    list.sort((a, b) => {
+      let dateA = new Date(`01 ${a.dateCreated}`);
+      let dateB = new Date(`01 ${b.dateCreated}`);
+
+      if (dateA > dateB) {
+        return 1;
+      } else if (dateA < dateB) {
+        return -1;
+      }
+      return 0;
+    })
+  }
+
+  sortCards(progCards);
+  sortCards(nonProgCards);
+
 </script>
 
 <Hero>
@@ -146,19 +164,29 @@
 </Hero>
 
 <div class="cards">
-  {#each cards as card, idx}
-    <Delay animationDelayMs={delays[idx]}>
+  {#each progCards as card}
+    <PageEntrance delay={START_DELAY}>
       <ProjectCard {...card}/>
-    </Delay>
+    </PageEntrance>
   {/each}
 </div>
 
-<!-- <h2>Non-Programming Projects</h2> -->
+<PageEntrance delay={START_DELAY}><h2>Non-Programming Projects</h2></PageEntrance>
+
+<div class="cards">
+  {#each nonProgCards as card}
+    <PageEntrance delay={START_DELAY}>
+      <ProjectCard {...card}/>
+    </PageEntrance>
+  {/each}
+</div>
 
 <style>
   h2 {
-    padding: 5px;
+    font-size: 3rem;
+    padding: 2rem;
     text-align: center;
+    text-shadow: 0px 0px 50px var(--clr-text);
   }
   .cards {
     display: grid;

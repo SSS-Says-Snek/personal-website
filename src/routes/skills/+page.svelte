@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { genAnimationDelays } from "$lib";
-
   import Hero from "$lib/Hero.svelte";
+  import PageEntrance from "$lib/PageEntrance.svelte";
   import SkillCard from "./SkillCard.svelte";
 
-  import type { Subskill, Skill } from "./interfaces";
+  import type { Subskill, Skill } from "$lib/interfaces";
 
   function skillSorter(a: Subskill, b: Subskill) {
     if (a.percentage < b.percentage) { return 1; }
@@ -13,7 +12,6 @@
   }
 
   const START_DELAY = 500;
-  const DELAY_AMOUNT = 100;
 
   // Trust me it's not confusing at all :(
   let allSkills: Array<Skill> = [
@@ -196,6 +194,11 @@
           percentage: 30,
           tags: ["learning"]
         },
+        {
+          "name": "Linguistics",
+          percentage:50,
+          tags: ["learning"]
+        }
       ],
       relatedSkills: []
     }
@@ -210,8 +213,6 @@
     }
     totalSkills += 1 + skill.relatedSkills.length;
   }
-
-  let cardDelays = genAnimationDelays(totalSkills, START_DELAY, DELAY_AMOUNT);
 </script>
 
 <Hero>
@@ -219,8 +220,10 @@
 </Hero>
 
 <div class="container">
-  {#each allSkills as skill, idx}
-    <SkillCard {...skill} animationDelayMs={cardDelays[idx]}/>
+  {#each allSkills as skill}
+    <PageEntrance delay={START_DELAY}>
+      <SkillCard {...skill} />
+    </PageEntrance>
   {/each}
 </div>
 

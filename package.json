@@ -20,5 +20,8 @@
 		"unplugin-icons": "^0.18.1",
 		"vite": "^4.4.2"
 	},
-	"type": "module"
+	"type": "module",
+	"dependencies": {
+		"svelte-intersection-observer": "^1.0.0"
+	}
 }

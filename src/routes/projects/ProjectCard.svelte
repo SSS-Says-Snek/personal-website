@@ -40,6 +40,7 @@
   }
 </script>
 
+
 <div class="card">
   {#if projectUnfinished}
     <div class="info-unfinished">
@@ -83,11 +84,11 @@
         {#if projectSrc}
           {#if projectLang == "python"}
             <MdiLanguagePython />
-          {:else if projectLang == "c++"}
+            {:else if projectLang == "c++"}
             <MdiLanguageCpp />
-          {:else if projectLang == "text"}
+            {:else if projectLang == "text"}
             <MdiFile />
-          {:else if projectLang == "rust"}
+            {:else if projectLang == "rust"}
             <MdiLanguageRust />
           {/if}
         {:else}

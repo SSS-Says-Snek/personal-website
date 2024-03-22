@@ -1,12 +1,10 @@
 <script lang="ts">
-  import Delay from "$lib/Delay.svelte";
   import PercentBar from "./PercentBar.svelte";
 
   import MdiKeyboardArrowDown from '~icons/mdi/keyboard-arrow-down';
 
   import type { Subskill, RelatedSkill } from "./interfaces";
 
-  export let animationDelayMs: number;
   export let proficiency: string;
   export let percentage: number;
   export let name: string;
@@ -18,49 +16,47 @@
   let openedRelatedSkills = false;
 </script>
 
-<Delay animationDelayMs={animationDelayMs}>
-  <section class="skill-group-info"
-    style="{borderColor !== '' ? `--border-color: ${borderColor}` : ''}"
-  >
-    <div class="heading">
-      <h2>{name}</h2>
+<section class="skill-group-info"
+  style="{borderColor !== '' ? `--border-color: ${borderColor}` : ''}"
+>
+  <div class="heading">
+    <h2>{name}</h2>
 
-      <div class="skill-proficiency">
-        <h3>{proficiency}</h3>
-        <PercentBar width="275" percentage={percentage}/>
-      </div>
+    <div class="skill-proficiency">
+      <h3>{proficiency}</h3>
+      <PercentBar width="275" percentage={percentage}/>
     </div>
+  </div>
 
-    <ul class="subskills">
-      {#each subskills as subskill}
-        <li class="subskill">
-          <h4>{subskill.name}</h4>
-          <PercentBar
-            percentage={subskill.percentage}
-            learning={subskill.tags.includes("learning")} 
-          />
-        </li>
-      {/each}
-    </ul>
+  <ul class="subskills">
+    {#each subskills as subskill}
+      <li class="subskill">
+        <h4>{subskill.name}</h4>
+        <PercentBar
+          percentage={subskill.percentage}
+          learning={subskill.tags.includes("learning")} 
+        />
+      </li>
+    {/each}
+  </ul>
 
-    {#if (relatedSkills.length > 0)}
-      <div class="related-skills-container">
-        <button class="related-skills-toggle" on:click={() => {openedRelatedSkills = !openedRelatedSkills}}>
-          <h3>{openedRelatedSkills ? "Less" : "More"} on {name}</h3>
-          <MdiKeyboardArrowDown style="font-size: 2rem;" />
-        </button>
+  {#if (relatedSkills.length > 0)}
+    <div class="related-skills-container">
+      <button class="related-skills-toggle" on:click={() => {openedRelatedSkills = !openedRelatedSkills}}>
+        <h3>{openedRelatedSkills ? "Less" : "More"} on {name}</h3>
+        <MdiKeyboardArrowDown style="font-size: 2rem;" />
+      </button>
 
-        <div class="related-skills" class:related-skills-is-toggled={openedRelatedSkills}>
-          <div>
-            {#each relatedSkills as relatedSkill}
-              <svelte:self {...relatedSkill} relatedSkills={[]} />
-            {/each}
-          </div>
+      <div class="related-skills" class:related-skills-is-toggled={openedRelatedSkills}>
+        <div>
+          {#each relatedSkills as relatedSkill}
+            <svelte:self {...relatedSkill} relatedSkills={[]} />
+          {/each}
         </div>
       </div>
-    {/if}
-  </section>
-</Delay>
+    </div>
+  {/if}
+</section>
 
 <style>
   h2 {
