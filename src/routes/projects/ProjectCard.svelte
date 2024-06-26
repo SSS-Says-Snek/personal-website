@@ -10,6 +10,7 @@
   import MdiLanguageCpp from '~icons/mdi/language-cpp'
   import MdiPlusBox from '~icons/mdi/plus-box';
   import MdiLanguageRust from '~icons/mdi/language-rust'
+  import MdiLanguageJava from '~icons/mdi/language-java';
 
   export let title: string;
   export let dateCreated: string;
@@ -90,6 +91,8 @@
             <MdiFile />
             {:else if projectLang == "rust"}
             <MdiLanguageRust />
+            {:else if projectLang == "java"}
+            <MdiLanguageJava />
           {/if}
         {:else}
           <MdiLightbulbQuestionOutline />
