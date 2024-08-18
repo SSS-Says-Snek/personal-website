@@ -28,7 +28,7 @@
 <div class="container">
   <section>
     <h2 class="description">
-      Programer.<br/>
+      Programmer.<br/>
       Professional Nerd.<br/>
       Passionate Learner.
     </h2>

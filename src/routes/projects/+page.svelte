@@ -135,6 +135,17 @@
       projectLang: "python",
       projectSrc: "https://github.com/SSS-Says-Snek/todoist-dailies",
       projectUnfinished: true
+    },
+
+    {
+      title: "Cryptography GUI Tool",
+      dateCreated: "Mar 2024",
+      description: "A GUI made with Swing to showcase several crucial cryptography algorithms, including RSA and AES-128/192/256.",
+      imgSrc: "/images/cards/cryptography-gui-tool.png",
+      imgAlt: "A screenshot of the GUI in session. The tool is encrypting Lorem Ipsum with a randomly generated key",
+
+      projectLang: "java",
+      projectSrc: "https://github.com/SSS-Says-Snek/cryptography-gui-tool"
     }
   ];
 
