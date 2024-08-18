@@ -123,6 +123,18 @@
       projectLang: "svelte",
       projectSrc: "https://github.com/SSS-Says-Snek/whap-project",
       projectSpotlight: "https://whap-project.vercel.app"
+    },
+
+    {
+      title: "Todoist Dailies",
+      dateCreated: "Aug 2024",
+      description: "A tool written in GTK that pops up regularly on your desktop to remind you what tasks on Todoist are due today. Configurable and simple.",
+      imgSrc: "/images/cards/todoist-dailies.png",
+      imgAlt: "Screenshot of Todoist Dailies in action with 2 tasks due today",
+
+      projectLang: "python",
+      projectSrc: "https://github.com/SSS-Says-Snek/todoist-dailies",
+      projectUnfinished: true
     }
   ];
 
