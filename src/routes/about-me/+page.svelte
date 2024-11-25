@@ -59,12 +59,12 @@
     >
       <div class="icon-container age">
         <MdiCakeVariant />
-        <p>16</p>
+        <p>17</p>
       </div>
 
       <div class="icon-container grade">
         <MdiSchoolOutline />
-        <p>Sophomore</p>
+        <p>Junior</p>
       </div>
     </Card>
   </Delay>

@@ -126,18 +126,6 @@
     },
 
     {
-      title: "Todoist Dailies",
-      dateCreated: "Aug 2024",
-      description: "A tool written in GTK that pops up regularly on your desktop to remind you what tasks on Todoist are due today. Configurable and simple.",
-      imgSrc: "/images/cards/todoist-dailies.png",
-      imgAlt: "Screenshot of Todoist Dailies in action with 2 tasks due today",
-
-      projectLang: "python",
-      projectSrc: "https://github.com/SSS-Says-Snek/todoist-dailies",
-      projectUnfinished: true
-    },
-
-    {
       title: "Cryptography GUI Tool",
       dateCreated: "Mar 2024",
       description: "A GUI made with Swing to showcase several crucial cryptography algorithms, including RSA and AES-128/192/256.",
@@ -146,7 +134,19 @@
 
       projectLang: "java",
       projectSrc: "https://github.com/SSS-Says-Snek/cryptography-gui-tool"
-    }
+    },
+
+    {
+      title: "Diurnals",
+      dateCreated: "Aug 2024",
+      description: "A tool written in GTK that pops up regularly on your desktop to remind you what tasks on Todoist are due today. Configurable and simple.",
+      imgSrc: "/images/cards/todoist-dailies.png",
+      imgAlt: "Screenshot of Todoist Dailies in action with 2 tasks due today",
+
+      projectLang: "python",
+      projectSrc: "https://github.com/SSS-Says-Snek/todoist-dailies",
+      projectDownload: "https://flathub.org/apps/io.github.sss_says_snek.diurnals"
+    },
   ];
 
   let nonProgCards = [
@@ -160,6 +160,17 @@
       projectLang: "text",
       projectDocs: "https://hurricane-cheque-70b.notion.site/Proto-Y-nticu-698ed26f640e4914823ff568b7127802",
       projectSpotlight: "https://docs.google.com/presentation/d/1ZyT7fftf-RpGdJmcLkWA9q_GjT6X4bQHc41IY0dGEl4/edit?usp=sharing"
+    },
+
+    {
+      title: "Cürang",
+      dateCreated: "Apr 2024",
+      description: "A fictional universe that incorporates the world of Yünticu and the language of Yünticu and expands it with a plethora of vastly unique cultures and an rich history and storyline.",
+      imgSrc: "/images/cards/cürang.png",
+      imgAlt: "Screenshot of an Obsidian graph showing the complexity of the Cürang project",
+
+      projectLang: "text",
+      projectUnfinished: true
     }
   ];
 

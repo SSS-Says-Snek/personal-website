@@ -4,13 +4,14 @@
   import MdiApplicationBracketsOutline from '~icons/mdi/application-brackets-outline'
   import MdiYoutube from '~icons/mdi/youtube'
   import MdiFileDocument from '~icons/mdi/file-document'
+  import MdiDownload from '~icons/mdi/download';
   import MdiLanguagePython from '~icons/mdi/language-python'
-  import MdiLightbulbQuestionOutline from '~icons/mdi/lightbulb-question-outline'
   import MdiFile from '~icons/mdi/file'
-  import MdiLanguageCpp from '~icons/mdi/language-cpp'
   import MdiPlusBox from '~icons/mdi/plus-box';
   import MdiLanguageRust from '~icons/mdi/language-rust'
   import MdiLanguageJava from '~icons/mdi/language-java';
+  import RiSvelteFill from '~icons/ri/svelte-fill';
+  import DeviconPlainCplusplus from '~icons/devicon-plain/cplusplus';
 
   export let title: string;
   export let dateCreated: string;
@@ -25,6 +26,7 @@
   export let projectSrc: string = "";
   export let projectSpotlight: string = "";
   export let projectDocs: string = "";
+  export let projectDownload: string = "";
   export let projectUnfinished: boolean = false;
 
   const NUM_AUTHOR_DETAILS = 2;
@@ -82,20 +84,18 @@
       </div>
 
       <div class="icon-container lang">
-        {#if projectSrc}
-          {#if projectLang == "python"}
-            <MdiLanguagePython />
-            {:else if projectLang == "c++"}
-            <MdiLanguageCpp />
-            {:else if projectLang == "text"}
-            <MdiFile />
-            {:else if projectLang == "rust"}
-            <MdiLanguageRust />
-            {:else if projectLang == "java"}
-            <MdiLanguageJava />
-          {/if}
-        {:else}
-          <MdiLightbulbQuestionOutline />
+        {#if projectLang == "python"}
+          <MdiLanguagePython />
+        {:else if projectLang == "c++"}
+        <DeviconPlainCplusplus />
+        {:else if projectLang == "text"}
+        <MdiFile />
+        {:else if projectLang == "rust"}
+        <MdiLanguageRust />
+        {:else if projectLang == "java"}
+        <MdiLanguageJava />
+        {:else if projectLang == "svelte"}
+        <RiSvelteFill />
         {/if}
         <h3>{projectLang}</h3>
       </div>
@@ -123,6 +123,14 @@
           <button class="button-link icon-container">
             <MdiFileDocument />
             Docs
+          </button>
+        </a>
+      {/if}
+      {#if projectDownload}
+        <a href={projectDownload}>
+          <button class="button-link icon-container">
+            <MdiDownload />
+            Download
           </button>
         </a>
       {/if}
