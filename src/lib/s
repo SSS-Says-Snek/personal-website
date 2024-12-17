@@ -1,0 +1,7 @@
+  <div class="embla" use:emblaCarouselSvelte>
+    <div class="embla__container">
+      <Delay animationDelayMs={300}><img class="embla__slide" src="/images/piano.jpg" /></Delay>
+    </div>
+  </div>
+
+

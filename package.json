@@ -22,6 +22,8 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"embla-carousel-autoplay": "^8.5.1",
+		"embla-carousel-svelte": "^8.5.1",
 		"svelte-intersection-observer": "^1.0.0"
 	}
 }

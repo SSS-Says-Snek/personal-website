@@ -27,7 +27,7 @@
     text-align: center;
     place-items: center;
 
-    color: var(--clr-black);
+    padding: 7rem 0;
     animation: 
       hero-text var(--transition-time) forwards,
       hero-expand var(--expand-time) forwards;

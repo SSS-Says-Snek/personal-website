@@ -2,10 +2,36 @@
   import MdiYoutube from '~icons/mdi/youtube'
   import MdiReddit from '~icons/mdi/reddit'
   import MdiDiscord from '~icons/mdi/discord'
+  import MdiKeyboardArrowLeft from '~icons/mdi/keyboard-arrow-left';
+  import MdiKeyboardArrowRight from '~icons/mdi/keyboard-arrow-right';
 
   import Image from '$lib/Image.svelte'
   import Hero from './Hero.svelte'
   import Button from '$lib/Button.svelte';
+  import Delay from '$lib/Delay.svelte'
+
+  import emblaCarouselSvelte from 'embla-carousel-svelte'
+  import Autoplay from 'embla-carousel-autoplay'
+
+  let emblaApi: any
+  let autoplay = Autoplay()
+  let options = { loop: true }
+  let plugins = [autoplay]
+
+  function onInit(event: any) {
+    emblaApi = event.detail
+    console.log(emblaApi.slideNodes())
+  }
+
+  function prev() {
+    emblaApi.scrollPrev();
+    autoplay.stop();
+  }
+
+  function next() {
+    emblaApi.scrollNext();
+    autoplay.stop();
+  }
 </script>
 
 <Hero>
@@ -26,6 +52,24 @@
 </Hero>
 
 <div class="container">
+  <Delay animationDelayMs={300}>
+    <div class="embla">
+      <div class="embla__prev" on:click={prev}><MdiKeyboardArrowLeft style="font-size: 4rem;"/></div>
+      <div class="embla__viewport"
+        use:emblaCarouselSvelte="{{ options, plugins }}"
+        on:emblaInit="{onInit}"
+      >
+        <div class="embla__container">
+          <img class="embla__slide" src="/images/piano.jpg" alt="Me playing the piano" />
+          <img class="embla__slide" src="/images/carousel/band.jpg" alt="The wind ensemble concert band I play in high school" />
+          <img class="embla__slide" src="/images/carousel/minecraft.png" alt="A screenshot of my modded minecraft world"/>
+          <img class="embla__slide" src="/images/carousel/gplates.png" alt="A snapshot of my tectonic plates simulator in an ambitious worldbuilding project" />
+        </div>
+      </div>
+      <div class="embla__next" on:click={next}><MdiKeyboardArrowRight style="font-size: 4rem;"/></div>
+    </div>
+  </Delay>
+
   <section>
     <h2 class="description">
       Programmer.<br/>
@@ -94,6 +138,45 @@
 </div>
 
 <style>
+  @keyframes embla-box-shadow {
+    from {
+      box-shadow: 0px 0px 20px hsl(var(--clr-hsl-mauve), 0.35);
+    }
+
+    to {
+      box-shadow: 0px 0px 20px hsl(var(--clr-hsl-pink), 0.35);
+    }
+  }
+
+  .embla {
+    position: relative;
+    border-radius: 1.5rem;
+  }
+
+  .embla__prev,
+  .embla__next {
+    display: none;
+  }
+
+  .embla__viewport {
+    overflow: hidden;
+    border-radius: 1.5rem;
+    /*margin: -26px;*/
+    /*padding: 26px;*/
+  }
+
+  .embla__container {
+    display: flex;
+  }
+
+  .embla__slide {
+    flex: 0 0 100%;
+    min-width: 0;
+    border-radius: 1.5rem; /* Two border-radius to satisfy box-shadow*/
+    margin-right: 3rem;
+    /*animation: embla-box-shadow 5s ease alternate infinite;*/
+  }
+
   /* COOL STYLES */
   section {
     display: flex;
@@ -110,7 +193,7 @@
     flex-direction: column;
     gap: 4rem;
   }
-  
+
   /* Specific stuff idk */
   .description {
     font-size: 2em;
@@ -208,11 +291,11 @@
     .description {
       font-size: 3em;
     }
-    
+
     img, svg {
       display: inline;
     }
-    
+
     .right-align {
       margin-left: auto;
       margin-right: 0;
@@ -224,6 +307,28 @@
 
     .img-group {
       gap: 5em; 
+    }
+
+    .embla__prev {
+      display: unset;
+      position: absolute;
+      top: 50%;
+      transform: translateX(-100%) translateY(-50%);
+      transition: scale 200ms;
+    }
+
+    .embla__next {
+      display: unset;
+      position: absolute;
+      top: 50%;
+      right: 0%;
+      transform: translateX(100%) translateY(-50%);
+      transition: scale 200ms;
+    }
+
+    .embla__prev:hover,
+    .embla__next:hover {
+      scale: 1.07;
     }
 }
 </style>
