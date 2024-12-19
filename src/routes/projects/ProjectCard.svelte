@@ -10,6 +10,7 @@
   import MdiPlusBox from '~icons/mdi/plus-box';
   import MdiLanguageRust from '~icons/mdi/language-rust'
   import MdiLanguageJava from '~icons/mdi/language-java';
+  import MdiCodeBraces from '~icons/mdi/code-braces'
   import RiSvelteFill from '~icons/ri/svelte-fill';
   import DeviconPlainCplusplus from '~icons/devicon-plain/cplusplus';
 
@@ -87,15 +88,17 @@
         {#if projectLang == "python"}
           <MdiLanguagePython />
         {:else if projectLang == "c++"}
-        <DeviconPlainCplusplus />
+          <DeviconPlainCplusplus />
         {:else if projectLang == "text"}
-        <MdiFile />
+          <MdiFile />
         {:else if projectLang == "rust"}
-        <MdiLanguageRust />
+          <MdiLanguageRust />
         {:else if projectLang == "java"}
-        <MdiLanguageJava />
+          <MdiLanguageJava />
         {:else if projectLang == "svelte"}
-        <RiSvelteFill />
+          <RiSvelteFill />
+        {:else if projectLang == "config"}
+          <MdiCodeBraces />
         {/if}
         <h3>{projectLang}</h3>
       </div>

@@ -147,6 +147,16 @@
       projectSrc: "https://github.com/SSS-Says-Snek/todoist-dailies",
       projectDownload: "https://flathub.org/apps/io.github.sss_says_snek.diurnals"
     },
+
+    {
+      title: "Selfhosting",
+      dateCreated: "Oct 2024",
+      description: "A wide range of services and servers that I set up with both physical and cloud computers. I learnt a lot of stuff about networking and docker along the way.",
+      imgSrc: "/images/cards/selfhosting.png",
+      imgAlt: "Screenshot of my homepage of the services I selfhost, customized with gethomepage",
+
+      projectLang: "config",
+    }
   ];
 
   let nonProgCards = [
@@ -170,7 +180,8 @@
       imgAlt: "Screenshot of an Obsidian graph showing the complexity of the Cürang project",
 
       projectLang: "text",
-      projectUnfinished: true
+      projectUnfinished: true,
+      projectDocs: "https://yunticu.s4aysnek.com"
     }
   ];
 

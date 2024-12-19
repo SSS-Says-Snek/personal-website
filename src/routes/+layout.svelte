@@ -8,6 +8,7 @@
     <a href="/projects">Projects</a>
     <a href="/about-me">About Me</a>
     <a href="/skills">Skills</a>
+    <a href="https://yunticu.s4aysnek.com">Yünticu</a>
   </div>
 </nav>
 
