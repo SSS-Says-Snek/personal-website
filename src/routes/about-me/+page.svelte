@@ -45,7 +45,7 @@
   var(--clr-mauve),
   var(--clr-pink)
   )">
-  <h1>About Me</h1>
+  <h1 class="h1-hero">About Me</h1>
 </Hero>
 
 <div class="cards">

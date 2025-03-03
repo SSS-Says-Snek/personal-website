@@ -1,4 +1,8 @@
-<div class="hero full-width">
+<script lang="ts">
+  let { narrow = false }: { narrow?: boolean } = $props();
+</script>
+
+<div class="hero full-width" class:hero-narrow={narrow}>
   <slot />
 </div>
 
@@ -32,6 +36,14 @@
     animation:
       hero-fade var(--transition-time) forwards,
       hero-bg 8s ease alternate infinite;
+  }
+
+  :global(.hero.hero-narrow) {
+    padding: 4rem 0;
+  }
+
+  :global(.hero h1) {
+    white-space: nowrap;
   }
 
   @keyframes hero-bg {

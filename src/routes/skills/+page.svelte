@@ -216,7 +216,7 @@
 </script>
 
 <Hero>
-  <h1>My Skills</h1>
+  <h1 class="h1-hero">My Skills</h1>
 </Hero>
 
 <div class="container">

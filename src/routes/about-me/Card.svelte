@@ -19,6 +19,7 @@
   h1 {
     font-size: 2rem;
     background-color: var(--clr-surface);
+    margin: unset;
   }
 
   img {

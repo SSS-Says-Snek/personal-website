@@ -3,10 +3,16 @@ import { defineConfig } from 'vite';
 import Icons from 'unplugin-icons/vite'
 
 export default defineConfig({
-	plugins: [
+  plugins: [
     sveltekit(),
     Icons({
       compiler: 'svelte',
     })
-  ]
+  ],
+
+  server: {
+    fs: {
+      allow: ["."],
+    },
+  },
 });

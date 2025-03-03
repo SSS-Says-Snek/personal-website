@@ -48,7 +48,7 @@
 <div class="card">
   {#if projectUnfinished}
     <div class="info-unfinished">
-      <h3>Project in Progress</h3>
+      <p>Project in Progress</p>
     </div>
   {/if}
 
@@ -59,7 +59,7 @@
     <div class="details date">
       <div class="icon-container">
         <MdiCalendarToday style="color: var(--clr-mauve);"/>
-        <h3>{dateCreated}</h3>
+        <p>{dateCreated}</p>
       </div>
 
       <div class="icon-container authors">
@@ -100,7 +100,7 @@
         {:else if projectLang == "config"}
           <MdiCodeBraces />
         {/if}
-        <h3>{projectLang}</h3>
+        <p>{projectLang}</p>
       </div>
     </div>
 

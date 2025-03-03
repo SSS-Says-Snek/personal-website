@@ -205,7 +205,7 @@
 </script>
 
 <Hero>
-  <h1>Projects</h1>
+  <h1 class="h1-hero">Projects</h1>
 </Hero>
 
 <div class="cards">

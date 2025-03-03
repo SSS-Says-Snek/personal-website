@@ -3,7 +3,7 @@
 
   import MdiKeyboardArrowDown from '~icons/mdi/keyboard-arrow-down';
 
-  import type { Subskill, RelatedSkill } from "./interfaces";
+  import type { Subskill, RelatedSkill } from "$lib/interfaces";
 
   export let proficiency: string;
   export let percentage: number;
@@ -20,10 +20,10 @@
   style="{borderColor !== '' ? `--border-color: ${borderColor}` : ''}"
 >
   <div class="heading">
-    <h2>{name}</h2>
+    <p>{name}</p>
 
     <div class="skill-proficiency">
-      <h3>{proficiency}</h3>
+      <p>{proficiency}</p>
       <PercentBar width="275" percentage={percentage}/>
     </div>
   </div>
@@ -31,7 +31,7 @@
   <ul class="subskills">
     {#each subskills as subskill}
       <li class="subskill">
-        <h4>{subskill.name}</h4>
+        <p>{subskill.name}</p>
         <PercentBar
           percentage={subskill.percentage}
           learning={subskill.tags.includes("learning")} 
@@ -43,7 +43,7 @@
   {#if (relatedSkills.length > 0)}
     <div class="related-skills-container">
       <button class="related-skills-toggle" on:click={() => {openedRelatedSkills = !openedRelatedSkills}}>
-        <h3>{openedRelatedSkills ? "Less" : "More"} on {name}</h3>
+        <p>{openedRelatedSkills ? "Less" : "More"} on {name}</p>
         <MdiKeyboardArrowDown style="font-size: 2rem;" />
       </button>
 
@@ -59,8 +59,9 @@
 </section>
 
 <style>
-  h2 {
+  .heading > p {
     font-size: 2rem;
+    font-weight: 700;
   }
 
   section {
@@ -104,7 +105,7 @@
     align-items: center;
   }
 
-  .skill-proficiency h3 {
+  .skill-proficiency p {
     font-weight: 600;
     display: none;
   }
@@ -122,7 +123,7 @@
     text-align: center;
   }
 
-  .subskill h4 {
+  .subskill p {
     font-weight: 600;
   }
 
@@ -187,7 +188,7 @@
       gap: 0.5rem;
     }
 
-    .skill-proficiency h3 {
+    .skill-proficiency p {
       display: unset;
     }
 

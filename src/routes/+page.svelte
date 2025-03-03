@@ -20,7 +20,6 @@
 
   function onInit(event: any) {
     emblaApi = event.detail
-    console.log(emblaApi.slideNodes())
   }
 
   function prev() {
@@ -138,6 +137,10 @@
 </div>
 
 <style>
+  h2 {
+    font-size: 1.25em;
+  }
+
   @keyframes embla-box-shadow {
     from {
       box-shadow: 0px 0px 20px hsl(var(--clr-hsl-mauve), 0.35);

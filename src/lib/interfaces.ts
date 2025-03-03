@@ -40,3 +40,16 @@ export type Card = {
   projectDocs?: string;
   projectSpotlight?: string;
 }
+
+export type Post = {
+    title: string;
+    slug: string;
+    excerpt: string;
+    coverImage: string;
+    coverImageAlt: string;
+    coverWidth: number;
+    coverHeight: number;
+    date: Date;
+    categories: string[];
+}
+
