@@ -69,9 +69,6 @@
 </div>
 
 <style>
-.frontmatter {
-  text-align: center;
-}
   h1 {
     text-shadow: 0px 0px 20px hsl(var(--clr-hsl-mauve), 0.45);
     font-size: clamp(1.5rem, calc(1.5rem + 2vw), 4rem);
@@ -96,6 +93,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
   }
 
   .icon-text {
