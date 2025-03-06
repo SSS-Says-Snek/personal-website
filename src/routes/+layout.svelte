@@ -19,6 +19,12 @@
     modalBackground?.setAttribute("data-in-effect", visible.toString());
   }
 
+  function onLinkClick() {
+    if (visible) {
+      onNavClick();
+    }
+  }
+
   onMount(() => {
     let resizeTimer: any;
     window.addEventListener("resize", () => {
@@ -36,10 +42,10 @@
   <a href="/" class="home">Home</a>
   <button onclick={onNavClick} aria-controls="primary-navigation" aria-expanded="false" class="mobile-hamburger"><span class="sr-only">Menu</span></button>
   <div data-visible="false" id="primary-navigation" class="right">
-    <a href="/projects" onclick={onNavClick}>Projects</a>
-    <a href="/about-me" onclick={onNavClick}>About Me</a>
-    <a href="/skills" onclick={onNavClick}>Skills</a>
-    <a href="/blog" onclick={onNavClick}>Blog</a>
+    <a href="/projects" onclick={onLinkClick}>Projects</a>
+    <a href="/about-me" onclick={onLinkClick}>About Me</a>
+    <a href="/skills" onclick={onLinkClick}>Skills</a>
+    <a href="/blog" onclick={onLinkClick}>Blog</a>
     <a href="https://yunticu.s4aysnek.com">Yünticu</a>
   </div>
 </nav>
