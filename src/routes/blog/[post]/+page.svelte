@@ -15,8 +15,6 @@
   let { PostContent } = data;
   let post: Post = data.metadata;
 
-  let minRead = $state("0 minute read");
-
   onMount(() => {
     const observer = new IntersectionObserver(entries => {
       entries.forEach(entry => {
@@ -38,11 +36,15 @@
       observer.observe(section);
     });
 
-    const allText = document.body.innerText;
-    const allWords = allText.split(/\s/).filter(Boolean);
-    minRead = `${Math.round(allWords.length / 250)} minute read`;
+    //const allText = document.body.innerText;
+    //const allWords = allText.split(/\s/).filter(Boolean);
+    //minRead = `${Math.round(allWords.length / 250)} minute read`;
   });
 </script>
+
+<head>
+  <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
+</head>
 
 <Hero narrow={true} />
 <img src={post.coverImage} alt={post.coverImageAlt}>
@@ -57,7 +59,7 @@
 
     <div class="icon-text">
       <MdiClock class="icon" />
-      <p>{minRead}</p>
+      <p>{post.minRead} minute read</p>
     </div>
   </div>
 </div>

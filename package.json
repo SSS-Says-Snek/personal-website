@@ -31,7 +31,10 @@
 		"embla-carousel-autoplay": "^8.5.1",
 		"embla-carousel-svelte": "^8.5.1",
 		"rehype-autolink-headings": "^7.1.0",
+		"rehype-katex": "^7.0.1",
+		"rehype-katex-svelte": "^1.2.0",
 		"rehype-slug": "^6.0.0",
+		"remark-math": "^3.0.0",
 		"svelte-intersection-observer": "^1.0.0"
 	}
 }

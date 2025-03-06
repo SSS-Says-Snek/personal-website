@@ -27,7 +27,7 @@
 
         <div class="icon-text">
           <MdiClock class="icon" />
-          <p>5 minute read</p>
+          <p>{post.minRead} minute read</p>
         </div>
       </div>
 
@@ -75,6 +75,7 @@
     flex-direction: column;
     gap: 0.5rem;
     max-width: 70ch;
+    width: 100%;
   }
 
   .icon-text {

@@ -1,4 +1,4 @@
-<div class="hero full-width">
+<div class="main-hero full-width">
   <div><slot /></div>
 </div>
 
@@ -16,7 +16,7 @@
     to {filter: brightness(50%);}
   }
 
-  .hero {
+  .main-hero {
     --transition-time: 4s;
     --expand-time: 750ms;
 
@@ -33,11 +33,11 @@
       hero-expand var(--expand-time) forwards;
   }
   
-  .hero > div {
+  .main-hero > div {
     overflow: hidden;
   }
 
-  .hero::before {
+  .main-hero::before {
     content: "";
     position: absolute;
     z-index: -1;

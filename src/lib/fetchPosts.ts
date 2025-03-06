@@ -40,6 +40,7 @@ const fetchPosts = async ({ offset = 0, limit = 10, category = '' } = {}) => {
     coverImageAlt: post.coverImageAlt,
     date: post.date,
     categories: post.categories,
+    minRead: post.minRead
   }))
 
   return {

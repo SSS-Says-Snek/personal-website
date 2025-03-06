@@ -51,5 +51,6 @@ export type Post = {
     coverHeight: number;
     date: Date;
     categories: string[];
+    minRead: string;
 }
 

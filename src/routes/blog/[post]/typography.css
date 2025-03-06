@@ -47,12 +47,11 @@
 	font-size: clamp(1.1rem, calc(1.1rem + 1vw), 1.25rem);
 }
 
-/*.md-content ol,*/
-/*.md-content ul {*/
-/*	padding-left: 2.5rem;*/
-/*}*/
-
 .md-content hr {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+.math-display {
+  overflow: auto;
 }

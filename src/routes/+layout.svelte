@@ -7,6 +7,7 @@
   function onNavClick() {
     let primaryNav = document.querySelector(".right");
     let button = document.querySelector(".mobile-hamburger");
+    let modalBackground = document.querySelector(".modal-background");
 
     if (visible) {
       visible = false;
@@ -15,6 +16,7 @@
     }
     primaryNav?.setAttribute("data-visible", visible.toString());
     button?.setAttribute("aria-expanded", visible.toString());
+    modalBackground?.setAttribute("data-in-effect", visible.toString());
   }
 
   onMount(() => {
@@ -34,14 +36,16 @@
   <a href="/" class="home">Home</a>
   <button onclick={onNavClick} aria-controls="primary-navigation" aria-expanded="false" class="mobile-hamburger"><span class="sr-only">Menu</span></button>
   <div data-visible="false" id="primary-navigation" class="right">
-    <a href="/projects">Projects</a>
-    <a href="/about-me">About Me</a>
-    <a href="/skills">Skills</a>
-    <a href="/blog">Blog</a>
+    <a href="/projects" onclick={onNavClick}>Projects</a>
+    <a href="/about-me" onclick={onNavClick}>About Me</a>
+    <a href="/skills" onclick={onNavClick}>Skills</a>
+    <a href="/blog" onclick={onNavClick}>Blog</a>
     <a href="https://yunticu.s4aysnek.com">Yünticu</a>
   </div>
 </nav>
 
+<!-- can only click on modal when nav is visible; call onNavClick again to hide  !-->
+<div class="modal-background" onclick={onNavClick} aria-hidden="true"></div>
 <slot />
 
 <style>
@@ -53,7 +57,7 @@ nav {
   padding: 0.325rem 0;
   position: absolute;
   left: 0;
-  z-index: 1;
+  z-index: 100;
 }
 
 nav > a {
@@ -80,11 +84,19 @@ a:hover {
   scale: 1.1;
 }
 
+:global(.modal-background[data-in-effect="true"]) {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+
+  /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+
 .mobile-hamburger {
   position: absolute;
 
   border: 0;
-  width: 3rem;
+  width: 2.5rem;
   background-image: url("/images/icons/hamburger.svg");
   background-repeat: no-repeat;
   background-size: cover;

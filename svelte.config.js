@@ -1,8 +1,10 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
 import { mdsvex } from 'mdsvex';
+import remarkMath from 'remark-math';
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
+import rehypeKatexSvelte from 'rehype-katex-svelte';
 import toc from '@jsdevtools/rehype-toc';
 import * as sectionize from '@hbsnow/rehype-sectionize';
 
@@ -15,7 +17,11 @@ const config = {
         vitePreprocess(),
         mdsvex({
             extensions: [".md"],
+            remarkPlugins: [
+                remarkMath
+            ],
             rehypePlugins: [
+                rehypeKatexSvelte,
                 rehypeSlug,
                 rehypeAutolinkHeadings,
                 toc,

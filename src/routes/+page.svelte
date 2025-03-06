@@ -137,6 +137,11 @@
 </div>
 
 <style>
+  h1 {
+    text-wrap: wrap;
+    display: inline-block;
+  }
+
   h2 {
     font-size: 1.25em;
   }

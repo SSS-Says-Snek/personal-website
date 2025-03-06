@@ -1,6 +1,7 @@
 ---
 title: How to Sigma a Goon꞉ An Introduction
 coverImage: /images/blog/thumbnails/sigma.jpg
+minRead: 5
 date: September 25, 2024
 excerpt: Markdown is intended to be as easy-to-read and easy-to-write as is feasible. Readability, however, is emphasized above all ...
 ---
@@ -29,6 +30,13 @@ h1 h2 h3 {
     display: none;
 }
 ```
+
+### Test latex
+
+$$
+\frac{1}{2}
+$$
+
 
 A paragraph is simply one or more consecutive lines of text, separated
 by one or more blank lines. (A blank line is any line that looks like a
