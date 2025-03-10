@@ -42,7 +42,6 @@
   h2 { 
     position: relative;
     font-size: 1.625rem;
-    text-wrap: balance;
     transition: all 250ms;
     display: inline-block;
   }

@@ -31,7 +31,7 @@ const fetchPosts = async ({ offset = 0, limit = 10, category = '' } = {}) => {
   }
 
   sortedPosts = sortedPosts.map(post => ({
-    title: post.title,
+    title: post.title.replace('~', ':'),
     slug: post.slug,
     excerpt: post.excerpt,
     coverImage: post.coverImage,

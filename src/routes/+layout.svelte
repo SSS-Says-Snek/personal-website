@@ -2,6 +2,9 @@
   import { onMount } from 'svelte';
   import './app.css';
 
+  import MdiHeart from '~icons/mdi/heart';
+  import MdiHandWave from '~icons/mdi/hand-wave';
+
   let visible = false;
 
   function onNavClick() {
@@ -54,6 +57,18 @@
 <div class="modal-background" onclick={onNavClick} aria-hidden="true"></div>
 <slot />
 
+<footer class="full-width">
+  <div class="icon-pair">
+    <MdiHeart style="color: var(--clr-mauve);"/>
+    <p>Proudly built with Sveltekit</p>
+  </div>
+
+  <div class="icon-pair">
+    <MdiHandWave style="color: var(--clr-mauve);" />
+    <p>Have a good day!</p>
+  </div>
+</footer>
+
 <style>
 nav {
   display: flex;
@@ -75,6 +90,17 @@ nav > div:last-child {
 nav > div a {
   font-size: 1.5rem;
   font-weight: 600;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 3rem;
+  padding-block: 3rem;
+  background-color: #11111b;
 }
 
 a {
@@ -140,6 +166,12 @@ a:hover {
   transition: transform 300ms ease-out;
 }
 
+.icon-pair {
+  display: flex;
+  align-items: center;
+  gap: 0.125rem;
+}
+
 :global(.right[data-visible="true"]) {
   transform: translateX(0%);
 }
@@ -168,6 +200,11 @@ a:hover {
 
   nav > div a {
     font-size: 1rem;
+  }
+
+  footer {
+    flex-direction: row;
+    gap: 0px;
   }
 
   .right {

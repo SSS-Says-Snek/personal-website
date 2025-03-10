@@ -38,6 +38,40 @@ $$
 $$
 
 
+### Test code
+
+```python
+def _keepalive_thread(self):
+    while not self._keepalive_event.is_set():
+        self._keepalive_event.wait(30)
+
+        # Send keepalive to all clients
+        if not self._keepalive_event.is_set():
+            for client_socket in self.clients:
+                if client_socket not in self.clients:
+                    continue
+
+                self._unresponsive_clients.append(client_socket)
+                client_socket.sendall(b"$KEEPALIVE$")
+
+        # Keepalive acknowledgments will be handled in `_handle_keepalive`
+        self._keepalive_event.wait(30)
+
+        # Keepalive response wait is over, remove the unresponsive clients
+        if not self._keepalive_event.is_set():
+            for client_socket in self._unresponsive_clients:
+                try:
+                    self.disconnect_client(
+                        self.clients[client_socket],
+                        force=True,
+                        call_func=True,
+                    )
+                except KeyError:  # Client already left
+                    pass
+            self._unresponsive_clients.clear()
+```
+
+
 A paragraph is simply one or more consecutive lines of text, separated
 by one or more blank lines. (A blank line is any line that looks like a
 blank line -- a line containing nothing but spaces or tabs is considered

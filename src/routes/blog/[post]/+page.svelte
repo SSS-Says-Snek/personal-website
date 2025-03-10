@@ -50,7 +50,7 @@
 <img src={post.coverImage} alt={post.coverImageAlt}>
 
 <div class="frontmatter">
-  <h1 class="post-title">{post.title}</h1>
+  <h1 class="post-title">{post.title.replace('~', ":")}</h1>
   <div class="info">
     <div class="icon-text">
       <MdiCalendar class="icon" />
