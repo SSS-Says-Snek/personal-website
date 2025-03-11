@@ -39,7 +39,7 @@
   }
 
   :global(.hero.hero-narrow) {
-    padding: 4rem 0;
+    padding: 1.375rem 0;
   }
 
   :global(.hero h1) {

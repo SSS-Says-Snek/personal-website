@@ -54,7 +54,15 @@
 }
 
 .md-content em {
-  font-style: italic;
+    font-style: italic;
+}
+
+/* .md-content a { */
+/*     color: var(--clr-mauve); */
+/* } */
+
+.md-content strong {
+    font-weight: 600;
 }
 
 .math-display {
