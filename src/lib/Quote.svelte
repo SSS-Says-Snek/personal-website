@@ -1,14 +1,16 @@
 <script lang="ts">
-  let { text, type = "quote" } = $props();
+  let { children, type = "quote" } = $props();
 </script>
 
 <div class="blockquote {type}">
-  <p>{text}</p>
+  <div class="content">
+    {@render children?.()}
+  </div>
 </div>
 
 <style>
-  p {
-    color: #bac2de;
+  .blockquote .content {
+    color: var(--clr-subtext);
   }
 
   .blockquote {
