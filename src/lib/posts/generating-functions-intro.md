@@ -375,6 +375,11 @@ Remember that $$F(x)$$ is defined as $$\sum_n{a_nx^n}$$. That is, the nth term o
 What is the coefficient of $$x^n$$ in that giant summation we just found? Well, it's just the stuff inside the parentheses, right, 
 multiplied by the $$\frac{1}{\sqrt{5}}$$ outside, right? We are finally done.
 
+<video width="640" height="360" controls>
+    <source src="../static/videos/blog/FibonacciOPSGF.mp4" type="video/mp4">
+</video>
+
+
 #### Step 4
 
 <Definition> 
