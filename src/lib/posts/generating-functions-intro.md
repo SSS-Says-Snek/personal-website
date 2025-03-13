@@ -3,7 +3,7 @@ title: Generating Functions~ An Intro to a Really Cool Piece of Math
 coverImage: /images/blog/thumbnails/generating-functions-intro.png
 date: March 6, 2025
 excerpt: I have loved and been interested in math for a very long time by now. However, even though it may be just be my inexperience with other fields, I have found generating functions ...
-minRead: 10
+minRead: 18
 ---
 
 <script>
@@ -408,3 +408,93 @@ Giving us the more-commonly-recognized ***Binet's Formula***
     $$
 
 </Definition>
+
+With generating functions, we have found the explicit form of a recurrance relation with 
+(relatively) little effort! While there are shorter, more specific proofs for Binet's formula, 
+this demonstrates the ease in which generating functions can manipulate sequences. I'll talk 
+about one more thing, then we can wrap up.
+
+### Evaluating GFs by plugging into "x"
+
+Earlier, I said that the $$x$$s found in generating functions are almost purely formal 
+and can't be plugged into? Well, not quite. To my understanding, despite the fact that it is 
+a formal power series, we can still connect with the more *analytical* side of things and 
+expect it to work, so long as the series converges (which we can verify with our calculus knowledge). 
+So, let's explore one last really cool thing about the fibonaccis and its GF.
+
+#### Convergence of $$F(x)$$
+For what values does the power series $$F(x)$$ converge to? If we backtrack, we remember that
+$$
+\frac{{-x}}{x^2 + x - 1} = \frac{1}{\sqrt{5}} \left( \frac{1}{1 - \frac{x}{r_+}} - \frac{1}{1 - \frac{x}{r_-}} \right)
+$$
+
+Because we know that the common ratio $$r$$ in an infinite geometric sequence must satisfy:
+$$
+S = \frac{a}{1 - r}; \quad |r| < 1
+$$
+
+$$x$ needs to be convergent for both series to make sense. This gives us
+$$
+\begin{aligned}
+-1 &< \frac{x}{r_+} < 1 \\
+-r_+ &< x < r_+ \\
+\frac{1 - \sqrt{5}}{2} &< x < \frac{\sqrt{5} - 1}{2}\\\\
+
+|\frac{x}{r_-}| &< 1\\
+-1 &< \frac{x}{-r_-}^* < 1 \\
+r_- &< x < -r_-\\
+\frac{-1 - \sqrt{5}}{2} &< x < \frac{1 + \sqrt{5}}{2}\\
+\end{aligned}
+$$
+
+<Quote type="note">
+
+    \* The reason why it turns negative is because $$r_-$$ is already negative. So, the absolute value turns it positive, which is shown by 
+    it changing signs.
+
+</Quote>
+
+From this, we can see that the stricter bound is
+$$
+\frac{1-\sqrt{5}}{2} < x < \frac{\sqrt{5} - 1}{2}
+$$
+
+which tells us that between ~$$\pm 0.61803$$, we can plug in x into
+$$
+F(x) = \sum_{n \ge 0}{a_nx^n} = \frac{-x}{x^2 + x - 1}
+$$
+
+In a sense, this relates the fibonacci sequence $$a_n$$ with a simple constant! One very cool thing we can do 
+is plug in $$\frac{1}{1000} = 0.001$$ into x, which fits comfortably within our bounds. Something really interesting happens...
+$$
+\begin{aligned}
+F(\frac{1}{1000}) &= \sum_{n \ge 0}{a_n (\frac{1}{1000})^n} = \frac{-0.001}{0.001^2 + 0.001 - 1}\\
+&= \frac{-0.001}{-0.998999} = \frac{1000}{998999}
+\end{aligned}
+$$
+
+Now let's examine the first 50 or so digits of $$\frac{1000}{998999}$$
+$$
+\frac{1000}{998999} = 0.001 \; 001 \; 002 \; 003 \; 005 \; 008 \; 013 \; 021 \, \\
+\quad \quad \quad \quad 034 \; 055 \; 089 \; 144 \; 233 \;377 \; 610 ...
+$$
+
+Wait, what? That simple fraction contains the first 16 fibonacci terms?? That's really cool, but 
+it should also not be that big of a surprise. In the equation above, we said that the fraction was equal to
+$$
+F(x) = \sum_{n \ge 0}{a_n (\frac{1}{1000})^n}
+$$
+
+Thinking about it carefully, what this is basically saying is to write down the nth term of $$a_n$$, then move right 3 decimal places 
+(since we're dividing by 1000), then repeat. It's kinda like a factory, churning out fibonacci terms until there's not enough space, when 
+the fibonacci numbers get to 4 digits and it breaks.
+
+&nbsp;
+
+In many cases, we can obtain some really cool results by plugging in real (and even complex numbers!) into $$x$$
+
+## Conclusion
+
+We've only begun to scratch the surface of generating functions, yet we've seen how powerful they can be. In future blogposts about generating functions, 
+we might cover different types of generating functions, as well as even more things you can do with them, from counting to infinite sums to all sorts of 
+cool number theory stuff. But for now, thanks for reading, and see you soon! $$\blacksquare$$
