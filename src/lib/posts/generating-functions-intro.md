@@ -146,3 +146,260 @@ $$
 </Definition>
 
 ## GenFuncs and Recursion
+
+Armed with this knowledge, we can now tackle one of the most well-known recurrance relations in all of math: the Fibonacci Sequence.
+
+### Definition of the fibonacci sequence
+<Quote type="refresher">
+
+    A recurrance relation is an equation that defines a term by referencing other previous terms. In the fibonacci sequence, the first terms are 0 
+    and 1, and the next term is defined by the sum of the last two terms. So, the next term is $$0 + 1 = 1$$, and the next is $$1 + 1 = 2$$, the next 
+    being $$2 + 1 = 3$$
+
+    The fibonacci sequence goes $$\{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, ...\}$$
+
+</Quote>
+
+Mathematically, the fibonacci sequence is defined as follows:
+$$
+a_{n+2} = a_{n+1} + a_n \quad (a_0 = 0, a_1 = 1)
+$$
+
+This is great, but there is an actual **explicit formula** for the fibonacci sequence, meaning that there's a formula that we can just 
+plug in `n` for the `n`th term and get the result without recursion! Can we find it?
+
+I mentioned that generating functions can be used to find these explicit formulas, so I'll outline how we'll do that, along with 
+why we're doing that.
+
+### The method
+
+Step 0: Define the generating function of the sequence to be $$F(x) = \sum_{n \ge 0}{a_nx^n}$$
+
+Step 1: Multiply both sides of the recurrance relation by $$\sum_n{x^n}$$ (i.e "multiply by $$x^n$$ and sum over $$n$$")
+
+Step 2: Simplify and find $$F(x)$$
+
+Step 3: Convert $$F(x)$$ into a series again with $$x^n$$ to prepare for "extraction"
+
+Step 4: Profit
+
+&nbsp;
+
+So, let's try to tackle this!
+
+
+#### Step 0
+Looks good to me. Let's move on
+
+#### Step 1
+When I multiply both sides of our recurrance relation of $$a_{n+2} = a_{n+1} + a_n$$, I get
+$$
+\sum_{n \ge 0}{a_{n+2}x^n} = \sum_{n \ge 0}{a_{n+1}x^n} + \sum_{n \ge 0}{a_nx^n}
+$$
+
+#### Step 2
+The result of step one looks very familiar... and it should! In [Generating Function Operations](#generating-function-operations), we talked about what 
+the generating function would be if we "shift" $$a_n$$ to the right. We can just see what we did previously and plug in accordingly, also noting 
+that $$\sum_{n \ge 0}{a_nx^n}$$ is the definition of $$F(x)$$, leaving us with
+$$
+\frac{F(x) - a_0 - a_1x}{x^2} = \frac{F(x) - a_0}{x} + F(x)
+$$
+
+Plugging in our starting terms $$a_0 = 0$$ and $$a_1 = 1$$ simplifies the equation down to
+$$
+\frac{F(x) - x}{x^2} = \frac{F(x)}{x} + F(x)
+$$
+
+Multiplying both sides by $$x^2$$ yields
+$$
+F(x) - x = xF(x) + x^2F(x)
+$$
+
+Moving F(x) to one side gives us
+$$
+x^2F(x) + xF(x) - F(x) = -x\\
+F(x) \cdot (x^2 + x - 1) = -x
+$$
+
+Finally, dividing yields us
+<Definition>
+
+The generating function for the fibonacci $$F(x)$$ is defined as
+$$
+F(x) = \frac{-x}{x^2 + x - 1}
+$$
+
+</Definition>
+
+#### Step 2.5
+Before we find the explicit formula, I just want to underline the fact that this generating function already works great! 
+Remember that by definition, if we want to find $$a_n$$, we look at the coefficient of $$x^n$$. Recalling stuff we learned from calculus, 
+how do we convert a function to an infinite polynomial of $$x^n$$s? With **Taylor/Maclaurin Expansion**!
+
+&nbsp;
+
+Say I wanted to find all fibonacci numbers from $$a_0$$ to $$a_{10}$$. Because this is über impractical, I'll ask an online calculator to help us 
+in finding a 10th-order Maclaurin polynomial of $$F(x)$$. Feel free to check for yourself on [emathhelp.net](https://www.emathhelp.net/calculators/calculus-1/taylor-and-maclaurin-series-calculator/?f=-x%2F%28x%5E2%2Bx-1%29&p=0&n=10&v=)
+
+(warning: it is NOT pretty)
+
+<img src="/images/blog/GFMaclaurin.png" alt="The 10th-order Macluarin polynomial for -x/(x^2 + x - 1)">
+
+Isn't this crazy? the 0th term is defined to be 0, so it doesn't appear in the polynomial. The 1st term is 1, so that's why it's just $$1x$$. The second term 
+is $$0 + 1 = 1$$, so in the polynomial, there's $$1x^2$$. We are able to *generate* this sequence with this *generating function*, which is so cool already! However, let's move 
+on from this (incredibly important) tangent and tackle the final steps.
+
+<Quote type="note">
+
+    Is expanding with Taylor/Maclaurin a super efficient method of generating the fibonacci terms? Heck no! This just illustrates what you *might* do
+    if this was your only option...
+</Quote>
+
+#### Step 3
+
+The hardest part is probably not *getting* the generating function but is actually converting it into a "useable" form. 
+When I was doing those simple generating functions in the [Examples](#examples) section, I used the handy infinite geometric sum
+$$
+S = \frac{a}{1 - r}
+$$
+
+I'm almost certain that we're gonna have $$x$$ somewhere in our common ratio, since that's what generating functions care about, so I'm looking for a way to 
+convert $$F(x)$$ into
+$$
+\frac{a}{1 - ?x}
+$$
+
+If only there was a way to **decompose** my $$F(x)$$ into a sum of **partial fractions**...
+
+Hmm? There's something called **partial fraction decomposition** that does exactly that? That's sick.
+
+First of all, we have 
+$$
+F(x) = \frac{{-x}}{x^2 + x - 1}
+$$
+
+Even though $$x^2 + x - 1$$ might not be factorable with integers, we can still express it as
+$$
+(x - r_{+})(x - r_{-}) \\
+r_{\pm} = \frac{-1 \pm \sqrt{5}}{2}
+$$
+
+where we found $$r$$ with the quadratic formula. Now, let's try to found $$A$$ and $$B$$ such that
+$$
+\frac{{-x}}{(x - r_+)(x - r_-)} = \frac{A}{x - r_+} + \frac{B}{x - r_-}
+$$
+
+Working with A, and with a shortcut, I found that
+$$
+A = \frac{{-r_+}}{r_+ - r_-}
+$$
+
+Working with B, and with the same shortcut, I found that
+$$
+B = \frac{{-r_-}}{r_- - r_+}
+$$
+
+This looks complicated until we realize that
+$$
+\begin{aligned}
+r_+ - r_- &= \frac{1 + \sqrt{5}}{2} - \frac{1 - \sqrt{5}}{2} \\
+&= \frac{2 \sqrt{5}}{2} = \sqrt{5} \\
+\end{aligned}
+$$
+
+and that
+
+$$
+\begin{aligned}
+r_- - r_+ &= \frac{1 - \sqrt{5}}{2} - \frac{1 + \sqrt{5}}{2} \\
+&= \frac{-2 \sqrt{5}}{2} = -\sqrt{5}
+\end{aligned}
+$$
+
+By getting that
+$$
+A = \frac{-r_+}{\sqrt{5}} \quad B = \frac{r_-}{\sqrt{5}}
+$$
+
+We ultimately get
+$$
+\frac{{-x}}{x^2 + x - 1} = \frac{1}{\sqrt{5}} \left( \frac{{-r_+}}{x - r_+} + \frac{{r_-}}{x - r_-} \right)
+$$
+
+We're getting really, really close to our goal. However, when I look at the geometric sum formula, I notice that 
+there must be a $$1 - ...$$ term on the denominator. So, I'm going to try to adjust the two partial fractions until it resembles that.
+
+$$
+\begin{aligned}
+\frac{{-r_+}}{x - r_+} &= \frac{{-r_+}}{x - r_+} \div \frac{-r_+}{-r_+} \\
+&= \frac{1}{1 - \frac{x}{r_+}}
+
+\\
+\\
+
+\frac{r_-}{x - r_-} &= \frac{r_-}{x - r_-} \div \frac{-r_-}{-r_-} \\
+&= \frac{-1}{1 - \frac{x}{r_-}}
+
+\end{aligned}
+$$
+
+That's better. Now, our equation is looking really nice:
+$$
+\frac{{-x}}{x^2 + x - 1} = \frac{1}{\sqrt{5}} \left( \frac{1}{1 - \frac{x}{r_+}} - \frac{1}{1 - \frac{x}{r_-}} \right)
+$$
+
+Notice how now, the partial fractions are in the form that we we original looking for. We can now do the opposite of what we 
+did in the earlier examples and work backwards, converting from this result to a series again.
+
+For the first result, we can see that $$a$$ is $$1$$, and that the common ratio is $$\frac{x}{r_+}$$. So, this is the same thing as
+$$
+\sum_{n \ge 0}{1 \cdot (\frac{x}{r_+})^n} = \sum_{n \ge 0}{(\frac{1}{r_+})^nx^n}
+$$
+
+Similarly, for the second result, we can see that $$a$$ is $$1$$, while the common ratio is $$\frac{x}{r_-}$$. This is now
+$$
+\sum_{n \ge 0}{1 \cdot (\frac{x}{r_-})^n} = \sum_{n \ge 0}{(\frac{1}{r_-})^nx^n}
+$$
+
+We're getting there! Our equation looks like
+$$
+\frac{{-x}}{x^2 + x - 1} = \frac{1}{\sqrt{5}} \left( \sum_{n \ge 0}{(\frac{1}{r_+})^nx^n} - \sum_{n \ge 0}{(\frac{1}{r_-})^nx^n} \right)
+$$
+
+Finally, realizing that the two sums share the same variables and bounds, we combine the two to get a grand result of
+$$
+F(x) = \frac{{-x}}{x^2 + x - 1} = \frac{1}{\sqrt{5}} \sum_{n \ge 0}{\left( (\frac{1}{r_+})^n - (\frac{1}{r_-})^n \right) x^n}
+$$
+
+Remember that $$F(x)$$ is defined as $$\sum_n{a_nx^n}$$. That is, the nth term of the fibonacci sequence will be the coefficient of $$x^n$$
+What is the coefficient of $$x^n$$ in that giant summation we just found? Well, it's just the stuff inside the parentheses, right, 
+multiplied by the $$\frac{1}{\sqrt{5}}$$ outside, right? We are finally done.
+
+#### Step 4
+
+<Definition> 
+
+    The `n`th term of the fibonacci sequence can be found with the following explicit formula:
+    $$
+    a_n = \frac{1}{\sqrt{5}} \left( (\frac{1}{r_+})^n - (\frac{1}{r_-})^n \right) \quad
+    r_{\pm} = \frac{-1 \pm \sqrt{5}}{2}
+    $$
+
+</Definition>
+
+By doing some basic math, we find that
+$$
+\frac{1}{r_+} = \frac{2}{-1 + \sqrt{5}} = \frac{1 + \sqrt{5}}{2} \\
+\frac{1}{r_-} = \frac{2}{-1 - \sqrt{5}} = \frac{1 - \sqrt{5}}{2}
+$$
+
+Giving us the more-commonly-recognized ***Binet's Formula***
+
+<Definition>
+
+    The `n`th term of the fibonacci sequence can be found with Binet's Formula:
+    $$
+    a_n = \frac{1}{\sqrt{5}} \left( (\frac{1 + \sqrt{5}}{2})^n - (\frac{1 - \sqrt{5}}{2})^n \right)
+    $$
+
+</Definition>
