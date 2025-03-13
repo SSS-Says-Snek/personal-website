@@ -376,7 +376,7 @@ What is the coefficient of $$x^n$$ in that giant summation we just found? Well, 
 multiplied by the $$\frac{1}{\sqrt{5}}$$ outside, right? We are finally done.
 
 <video width="640" height="360" controls>
-    <source src="../static/videos/blog/FibonacciOPSGF.mp4" type="video/mp4">
+    <source src="/videos/blog/FibonacciOPSGF.mp4" type="video/mp4">
 </video>
 
 
