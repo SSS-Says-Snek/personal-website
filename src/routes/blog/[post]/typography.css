@@ -85,6 +85,10 @@
   border: 2px solid hsl(var(--clr-hsl-mauve), 0.15);
 }
 
+.md-content section li:not(:last-child) { 
+   margin-bottom: 1rem;
+}
+
 .math-display {
   overflow: auto;
 }

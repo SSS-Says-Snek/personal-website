@@ -30,22 +30,11 @@ const fetchPosts = async ({ offset = 0, limit = 10, category = '' } = {}) => {
     sortedPosts = sortedPosts.slice(0, limit)
   }
 
-  sortedPosts = sortedPosts.map(post => ({
-    title: post.title.replace('~', ':'),
-    slug: post.slug,
-    excerpt: post.excerpt,
-    coverImage: post.coverImage,
-    coverWidth: post.coverWidth, 
-    coverHeight: post.coverHeight,
-    coverImageAlt: post.coverImageAlt,
-    date: post.date,
-    categories: post.categories,
-    minRead: post.minRead
-  }))
+  posts.forEach(post => {
+    post.title = post.title.replace('~', ':')
+  })
 
-  return {
-    posts: sortedPosts
-  }
+  return posts
 }
 
 export default fetchPosts;

@@ -1,12 +1,23 @@
 import adapter from '@sveltejs/adapter-auto';
 import { vitePreprocess } from '@sveltejs/vite-plugin-svelte';
-import { mdsvex } from 'mdsvex';
+import { mdsvex, escapeSvelte } from 'mdsvex';
 import remarkMath from 'remark-math';
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import rehypeSlug from "rehype-slug";
 import rehypeKatexSvelte from 'rehype-katex-svelte';
 import toc from '@jsdevtools/rehype-toc';
 import * as sectionize from '@hbsnow/rehype-sectionize';
+
+import { createHighlighter } from 'shiki';
+import {
+  transformerNotationFocus
+} from '@shikijs/transformers'
+
+const theme = "catppuccin-mocha";
+const highlighter = await createHighlighter({   
+    themes: [theme],                            
+    langs: [ 'javascript', 'typescript', 'svelte', 'python' ]       
+});
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
@@ -17,6 +28,20 @@ const config = {
         vitePreprocess(),
         mdsvex({
             extensions: [".md"],
+            highlight: {                                        
+                highlighter: async (code, lang = 'text') => {   
+                    const html = escapeSvelte(                  
+                        highlighter.codeToHtml(code, {          
+                            lang,                               
+                            theme,
+                            transformers: [
+                                transformerNotationFocus(),
+                            ]
+                        })                                      
+                    );                                          
+                    return html;              
+                }                                               
+            },
             remarkPlugins: [
                 remarkMath
             ],
@@ -37,12 +62,12 @@ const config = {
         })
     ],
 
-	kit: {
-		// adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
-		// If your environment is not supported or you settled on a specific environment, switch out the adapter.
-		// See https://kit.svelte.dev/docs/adapters for more information about adapters.
-		adapter: adapter()
-	},
+    kit: {
+        // adapter-auto only supports some environments, see https://kit.svelte.dev/docs/adapter-auto for a list.
+        // If your environment is not supported or you settled on a specific environment, switch out the adapter.
+        // See https://kit.svelte.dev/docs/adapters for more information about adapters.
+        adapter: adapter()
+    },
 
 };
 

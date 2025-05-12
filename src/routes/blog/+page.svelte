@@ -5,7 +5,7 @@
   import MdiCalendar from '~icons/mdi/calendar';
   import MdiClock from '~icons/mdi/clock';
 
-  let { data }: { data: { posts: { posts: Post[] } } } = $props();
+  let { data }: { data: { posts: Post[] } } = $props();
 </script>
 
 <Hero>
@@ -13,7 +13,7 @@
 </Hero>
 
 <div class="posts">
-  {#each data.posts.posts as post}
+  {#each data.posts as post}
     <a href={`/blog/${post.slug}`} class="post">
       <div class="title-container">
         <h2>{post.title}</h2>
