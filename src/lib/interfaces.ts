@@ -50,7 +50,7 @@ export type Post = {
     coverWidth: number;
     coverHeight: number;
     date: Date;
-    categories: string[];
+    tags: string[];
     minRead: string;
 }
 

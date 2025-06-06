@@ -21,7 +21,7 @@ const fetchPosts = async ({ offset = 0, limit = 10, category = '' } = {}) => {
   let sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Finnicky TS PMO
 
   if (category) {
-    sortedPosts = sortedPosts.filter(post => post.categories.includes(category))
+    sortedPosts = sortedPosts.filter(post => post.tags.includes(category))
   }
   if (offset) {
     sortedPosts = sortedPosts.slice(offset)

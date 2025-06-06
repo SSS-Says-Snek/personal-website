@@ -4,6 +4,7 @@ coverImage: /images/blog/thumbnails/test-latex.png
 minRead: 5
 date: March 4, 2025
 excerpt: Just me trying out cool math stuff in the new blog!
+tags: [math]
 ---
 
 I really like sigma

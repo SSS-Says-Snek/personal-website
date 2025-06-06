@@ -4,6 +4,7 @@ coverImage: /images/blog/thumbnails/the-process-of-making-my-portfolio-website.p
 date: May 4, 2025
 excerpt: It's been long overdue, but I'll finally show how I made this website, including this blog, all from Svelte and Sveltekit! I've been trying to make a portfolio website for a...
 minRead: 20
+tags: [programming, webdev]
 ---
 
 <script>

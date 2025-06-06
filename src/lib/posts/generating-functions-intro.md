@@ -4,6 +4,7 @@ coverImage: /images/blog/thumbnails/generating-functions-intro.png
 date: March 6, 2025
 excerpt: I have loved and been interested in math for a very long time by now. However, even though it may be just be my inexperience with other fields, I have found generating functions ...
 minRead: 18
+tags: [math]
 ---
 
 <script>
