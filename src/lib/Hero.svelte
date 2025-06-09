@@ -12,7 +12,7 @@
     --expand-time: 750ms;
 
     position: relative;
-    padding: 7rem 0;
+    padding: var(--size, 7rem) 0;
     text-align: center;
     margin-bottom: 4rem;
 

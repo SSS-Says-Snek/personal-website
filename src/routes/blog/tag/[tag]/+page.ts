@@ -5,7 +5,6 @@ export async function load({fetch, params}: {url: URL, fetch: Function, params: 
   let allPosts = await postRes.json();
   let posts = allPosts.filter((post: Post) => post.tags.includes(params.tag));
 
-  console.log(posts);
-  return { posts };
+  return { posts, tag: params.tag };
 }
 
