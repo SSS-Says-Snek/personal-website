@@ -1,6 +1,6 @@
 import type { Post } from "$lib/interfaces";
 
-const fetchPosts = async ({ offset = 0, limit = 10, category = '' } = {}) => {
+const fetchPosts = async ({ offset = 0, limit = 10 } = {}) => {
   const posts: Post[] = await Promise.all(
     // Stole it from the sveltekit blog starter template but here's what I think it does for future me
     // Vite's import.meta.glob "imports" all posts under that file structure
@@ -20,9 +20,6 @@ const fetchPosts = async ({ offset = 0, limit = 10, category = '' } = {}) => {
 
   let sortedPosts = posts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()) // Finnicky TS PMO
 
-  if (category) {
-    sortedPosts = sortedPosts.filter(post => post.tags.includes(category))
-  }
   if (offset) {
     sortedPosts = sortedPosts.slice(offset)
   }
