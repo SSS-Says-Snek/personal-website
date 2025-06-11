@@ -55,19 +55,24 @@
 
 <!-- can only click on modal when nav is visible; call onNavClick again to hide  !-->
 <div class="modal-background" onclick={onNavClick} aria-hidden="true"></div>
-<slot />
 
-<footer class="full-width">
-  <div class="icon-pair">
-    <MdiHeart style="color: var(--clr-mauve);"/>
-    <p>Proudly built with Sveltekit</p>
+<div class="flex-wrapper">
+  <div class="container">
+    <slot />
   </div>
 
-  <div class="icon-pair">
-    <MdiHandWave style="color: var(--clr-mauve);" />
-    <p>Have a good day!</p>
-  </div>
-</footer>
+  <footer class="full-width">
+    <div class="icon-pair">
+      <MdiHeart style="color: var(--clr-mauve);"/>
+      <p>Proudly built with Sveltekit</p>
+    </div>
+
+    <div class="icon-pair">
+      <MdiHandWave style="color: var(--clr-mauve);" />
+      <p>Have a good day!</p>
+    </div>
+  </footer>
+</div>
 
 <style>
 nav {
@@ -122,6 +127,13 @@ a:hover {
   z-index: 1;
 
   /*background-color: rgba(0, 0, 0, 0.3);*/
+}
+
+.flex-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  justify-content: space-between;
 }
 
 .mobile-hamburger {

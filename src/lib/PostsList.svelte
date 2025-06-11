@@ -1,15 +1,54 @@
 <script lang="ts">
   import MdiCalendar from '~icons/mdi/calendar';
   import MdiClock from '~icons/mdi/clock';
+  import MdiEmoticonSad from '~icons/mdi/emoticon-sad';
   import highlightedPosts from '$lib/posts/highlighted-posts.json';
   import type { Post } from './interfaces';
 
-  let { posts, popularTags }: { posts: Post[], popularTags: string[] } = $props();
+  import Fuse from 'fuse.js';
+    import { onMount } from 'svelte';
+
+  let { allPosts, posts, popularTags }: { allPosts: Post[], posts: Post[], popularTags: string[] } = $props();
+  const fuse = new Fuse(
+    allPosts, {
+      keys: [
+        'title'
+      ]
+    }
+  )
+
+  let searchQuery = $state('');
+  let hasPosts = $state(true);
+  const hasSearchQuery = () => searchQuery.length > 0;
+  const searchPosts = () => fuse.search(searchQuery);
+
+  function onSearchInput() {
+    if (searchPosts().length == 0) {
+      hasPosts = false;
+    } else {
+      hasPosts = true;
+    }
+  }
+  onMount(onSearchInput);
 </script>
 
 <div class="blog-info">
   <div class="blog-info-div">
     <div class="blog-info-section">
+      <div class="search">
+        <input type="text" placeholder="Search all posts" bind:value={searchQuery} oninput={onSearchInput}>
+        <div class="search-results" data-has-query={hasSearchQuery()}>
+          <div class="no-search-results-notification" data-has-posts={hasPosts}>
+            <MdiEmoticonSad />
+            <p>Sorry, no posts found</p>
+          </div>
+
+          {#each searchPosts() as searchPost}
+            <li><a href="/">{searchPost.item.title}</a></li>
+          {/each}
+        </div>
+      </div>
+
       <h3 class="blog-headers">Popular Tags</h3>
       <hr>
       <div class="info-tags">
@@ -35,8 +74,9 @@
     <div class="blog-info-section">
       <h3 class="blog-headers">Other Links</h3>
       <hr>
-      <a href="/" class="other-links text-transition">Home</a>
       <a href="/blog" class="other-links text-transition">Main blog page</a>
+      <a href="/" class="other-links text-transition">Home</a>
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" class="other-links text-transition">Secret area</a>
 
     </div>
 
@@ -87,7 +127,7 @@
 </div>
 
 <style>
-.post-title { 
+h2.post-title { 
   position: relative;
   font-size: 1.625rem;
   transition: all 250ms;
@@ -109,10 +149,30 @@ a, a:hover, a:visited, a:active {
   text-decoration: none;
 }
 
+a.other-links {
+  text-decoration: underline var(--clr-teal);
+}
+
+a.highlighted-post {
+  color: var(--clr-subtext);
+}
+
+input {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: transparent;
+  padding: 0.5rem;
+  border: 1px solid var(--clr-text);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+input:focus {
+  border: 1px solid var(--clr-teal);
+}
+
 .blog-info {
-  top: 40px;
-  position: sticky;
-  transform: translateX(calc(100% + 5rem)) translateY(0rem);
+  display: none;
 }
 
 .blog-info-div {
@@ -211,12 +271,46 @@ a, a:hover, a:visited, a:active {
   opacity: 1;
 }
 
-a.other-links {
-  text-decoration: underline var(--clr-teal);
+.search-results {
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  background-color: var(--clr-base);
+  border: 2px solid var(--clr-blue);
+  border-radius: 0.5rem;
 }
 
-a.highlighted-post {
-  color: var(--clr-subtext);
+.search-results li {
+  padding: 0.75rem 0.5rem;
+  transition: background-color 200ms, color 100ms;
+  border-bottom: 2px solid var(--clr-surface);
+}
+
+.search-results li:hover {
+  color: var(--clr-teal);
+  background-color: var(--clr-surface);
+}
+
+.no-search-results-notification {
+  display: flex;
+  padding: 0.75rem 0.5rem;
+  transition: background-color 200ms;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.25rem;
+
+  color: var(--clr-red);
+}
+
+.search-results[data-has-query="false"] {
+  display: none;
+}
+
+.no-search-results-notification[data-has-posts="true"] {
+  display: none;
 }
 
 @media (min-width: 600px) {
@@ -244,6 +338,15 @@ a.highlighted-post {
 
   .post h2::after {
     transform-origin: bottom right;
+  }
+}
+
+@media (min-width: 1600px) {
+  .blog-info {
+    display: block;
+    top: 40px;
+    position: sticky;
+    transform: translateX(100%) translateY(0rem);
   }
 }
 </style>
