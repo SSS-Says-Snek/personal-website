@@ -6,7 +6,7 @@
   import type { Post } from './interfaces';
 
   import Fuse from 'fuse.js';
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
 
   let { allPosts, posts, popularTags }: { allPosts: Post[], posts: Post[], popularTags: string[] } = $props();
   const fuse = new Fuse(
@@ -44,7 +44,7 @@
           </div>
 
           {#each searchPosts() as searchPost}
-            <li><a href="/">{searchPost.item.title}</a></li>
+            <li><a href={`/blog/${searchPost.item.slug}`}>{searchPost.item.title}</a></li>
           {/each}
         </div>
       </div>

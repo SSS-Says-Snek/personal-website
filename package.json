@@ -29,6 +29,7 @@
 	"type": "module",
 	"dependencies": {
 		"@jsdevtools/rehype-toc": "^3.0.2",
+		"@supabase/supabase-js": "^2.50.0",
 		"cheerio": "^1.0.0",
 		"embla-carousel-autoplay": "^8.5.1",
 		"embla-carousel-svelte": "^8.5.1",

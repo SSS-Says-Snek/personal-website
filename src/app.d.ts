@@ -11,4 +11,10 @@ declare global {
 	}
 }
 
+declare module '$env/dynamic/private' {
+  export const NASA_API_KEY: string;
+  export const SUPABASE_URL: string;
+  export const SUPABASE_KEY: string;
+}
+
 export {};
