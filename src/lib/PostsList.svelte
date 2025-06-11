@@ -8,7 +8,7 @@
   import Fuse from 'fuse.js';
   import { onMount } from 'svelte';
 
-  let { allPosts, posts, popularTags }: { allPosts: Post[], posts: Post[], popularTags: string[] } = $props();
+  let { allPosts, posts, popularTags, imageURL }: { allPosts: Post[], posts: Post[], popularTags: string[], imageURL: string } = $props();
   const fuse = new Fuse(
     allPosts, {
       keys: [
@@ -81,9 +81,9 @@
     </div>
 
     <div class="blog-info-section">
-      <h3 class="blog-headers">Image of the Month</h3>
+      <h3 class="blog-headers">Image of the Day</h3>
       <hr>
-      <img src="https://apod.nasa.gov/apod/image/2506/ScyllaB_LerouxGere_960.jpg" alt="An outer space nebula">
+      <img src={imageURL} alt="An outer space nebula">
     </div>
   </div>
 </div>

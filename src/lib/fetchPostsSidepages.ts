@@ -36,5 +36,5 @@ export default async function fetchPostSide(fetch: Function) {
     await supabase.from('image_of_the_day').update( { url: imageURL, last_accessed: dateNow }).eq('id', 0);
   }
 
-  return { allPosts: posts, posts, popularTags: tagsKey.slice(0, 15) };
+  return { allPosts: posts, posts, popularTags: tagsKey.slice(0, 15), imageURL };
 }
