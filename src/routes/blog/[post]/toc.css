@@ -39,6 +39,10 @@
     margin-bottom: 1rem;
 }
 
+.toc[data-no-toc="true"] {
+  display: none;
+}
+
 @media (width > 1800px) {
   .toc {
     position: sticky;

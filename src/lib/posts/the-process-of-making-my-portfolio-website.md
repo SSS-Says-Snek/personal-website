@@ -113,12 +113,12 @@ export async function load({fetch}: {url: URL, fetch: Function}) {
 }
 ```
 
-Basically, whenever someone's trying to reach the `/blog/` page, which is where all the blogposts are shown, sveltekit fetches all the posts with `/api/posts` (line 3). Note that this happens on the server side only, 
+Basically, whenever someone's trying to reach the `/blog/` page, which is where all the blogposts are shown, sveltekit fetches all the posts with `/api/posts` (line 4). Note that this happens on the server side only, 
 as indicated by the filename being `+page.server.ts`.
 
 &nbsp;
 
-Then, it is made available to the component by way of the `data` prop (line 4), which then is used by the component with a loop (line 8) that renders all the blog summaries appropriately. 
+Then, it is made available to the component by way of the `data` prop in `+page.svelte` (line 4), which then is used by the component with a loop (line 8) that renders all the blog summaries appropriately. 
 
 &nbsp;
 

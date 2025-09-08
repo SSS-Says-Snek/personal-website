@@ -64,7 +64,7 @@
 
       <div class="icon-container grade">
         <MdiSchoolOutline />
-        <p>Junior</p>
+        <p>Senior</p>
       </div>
     </Card>
   </Delay>

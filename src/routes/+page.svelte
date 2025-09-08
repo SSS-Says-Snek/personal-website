@@ -13,6 +13,10 @@
   import emblaCarouselSvelte from 'embla-carousel-svelte'
   import Autoplay from 'embla-carousel-autoplay'
 
+  // import * as THREE from 'three';
+  // // @ts-ignore
+  // import NET from 'vanta/dist/vanta.net.min';
+
   let emblaApi: any
   let autoplay = Autoplay()
   let options = { loop: true }
@@ -31,6 +35,22 @@
     emblaApi.scrollNext();
     autoplay.stop();
   }
+
+  // function vanta(node: HTMLElement) {
+  //   NET({
+  //     el: node,
+  //     THREE: THREE,
+  //     mouseControls: false,
+  //     touchControls: false,
+  //     gyroControls: false,
+  //     minHeight: 200.00,
+  //     minWidth: 200.00,
+  //     scale: 1.00,
+  //     scaleMobile: 1.00,
+  //     color: 0xff0000,
+  //     backgroundColor: 0x1e1e2e
+  //   })
+  // }
 </script>
 
 <Hero>

@@ -349,7 +349,7 @@ $$
 \frac{{-x}}{x^2 + x - 1} = \frac{1}{\sqrt{5}} \left( \frac{1}{1 - \frac{x}{r_+}} - \frac{1}{1 - \frac{x}{r_-}} \right)
 $$
 
-Notice how now, the partial fractions are in the form that we we original looking for. We can now do the opposite of what we 
+Notice how now, the partial fractions are in the form that we were originally looking for. We can now do the opposite of what we 
 did in the earlier examples and work backwards, converting from this result to a series again.
 
 For the first result, we can see that $$a$$ is $$1$$, and that the common ratio is $$\frac{x}{r_+}$$. So, this is the same thing as

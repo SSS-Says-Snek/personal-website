@@ -3,7 +3,7 @@
   flex-direction: column;
 
   position: relative;
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   line-height: 1.5;
 }
 
@@ -85,10 +85,33 @@
   border: 2px solid hsl(var(--clr-hsl-mauve), 0.15);
 }
 
+.md-content .rounded-corners {
+  border-radius: 1rem;
+}
+
+.md-content .no-margin {
+  margin: 0rem auto !important;
+}
+
+.md-content .no-border {
+  border: none !important;
+}
+
+.md-content .no-shadows {
+  box-shadow: none !important;
+}
+
 .md-content section li:not(:last-child) { 
    margin-bottom: 1rem;
 }
 
 .math-display {
   overflow: auto;
+}
+
+iframe.video {
+  display: block;
+  margin: 2rem auto;
+  border: none;
+  aspect-ratio: 16 / 9;
 }

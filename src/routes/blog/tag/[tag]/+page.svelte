@@ -3,7 +3,7 @@
   import Hero from "$lib/Hero.svelte";
   import PostsList from "$lib/PostsList.svelte";
 
-  let { data }: { data: { allPosts: Post[], posts: Post[], tag: string, popularTags: string[] } } = $props();
+  let { data }: { data: { allPosts: Post[], posts: Post[], tag: string, popularTags: string[], imageURL: string } } = $props();
 </script>
 
 <Hero --background="linear-gradient(45deg,

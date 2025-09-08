@@ -52,5 +52,10 @@ export type Post = {
     date: Date;
     tags: string[];
     minRead: string;
+    noTOC?: string;
 }
 
+export type ImageInfo = {
+    src: string;
+    alt: string;
+}

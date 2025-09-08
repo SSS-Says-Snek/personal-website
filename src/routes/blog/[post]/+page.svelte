@@ -36,15 +36,16 @@
       observer.observe(section);
     });
 
+
     //const allText = document.body.innerText;
     //const allWords = allText.split(/\s/).filter(Boolean);
     //minRead = `${Math.round(allWords.length / 250)} minute read`;
   });
 </script>
 
-<head>
+<svelte:head>
   <link href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css" rel="stylesheet">
-</head>
+</svelte:head>
 
 <Hero narrow={true} />
 <img src={post.coverImage} alt={post.coverImageAlt}>
