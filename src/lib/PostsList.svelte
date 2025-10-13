@@ -29,6 +29,7 @@
       hasPosts = true;
     }
   }
+
   onMount(onSearchInput);
 </script>
 

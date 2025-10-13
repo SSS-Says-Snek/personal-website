@@ -2,6 +2,7 @@
   import MdiYoutube from '~icons/mdi/youtube'
   import MdiReddit from '~icons/mdi/reddit'
   import MdiDiscord from '~icons/mdi/discord'
+  import MaterialSymbolsChat from '~icons/material-symbols/chat';
   import MdiKeyboardArrowLeft from '~icons/mdi/keyboard-arrow-left';
   import MdiKeyboardArrowRight from '~icons/mdi/keyboard-arrow-right';
 
@@ -67,6 +68,9 @@
     <a class="profile-link" href="https://www.discordapp.com/users/683852333293109269">
       <MdiDiscord style="font-size: 30px;" />
     </a>
+    <a class="profile-link" href="/blog">
+      <MaterialSymbolsChat style="font-size: 30px;" />
+    </a>
   </div>
 </Hero>
 
@@ -83,6 +87,7 @@
           <img class="embla__slide" src="/images/carousel/band.jpg" alt="The wind ensemble concert band I play in high school" />
           <img class="embla__slide" src="/images/carousel/minecraft.png" alt="A screenshot of my modded minecraft world"/>
           <img class="embla__slide" src="/images/carousel/gplates.png" alt="A snapshot of my tectonic plates simulator in an ambitious worldbuilding project" />
+          <img class="embla__slide" src="/images/carousel/yunticu.png" alt="A snippet from a play in a fictional language I created" />
         </div>
       </div>
       <div class="embla__next" on:click={next}><MdiKeyboardArrowRight style="font-size: 4rem;"/></div>
@@ -113,6 +118,31 @@
       alt="Source code of one of my projects"
       width="400"
       translucent={true} />
+  </section>
+
+  <section data-gap="medium">
+    <div class="img-group">
+      <Image src="/images/minecraft.png"
+        alt="Minecraft"
+        width="250"
+        translucent={true} />
+
+      <Image src="/images/yunticu.png"
+        alt="Yunticu"
+        width="200"
+        translucent={true} />
+    </div>
+
+    <div class="button-group right-align">
+      <h2 class="description text-align-right">
+        Writes about<br/>
+        Random Cool Things<br/>
+      </h2>
+
+      <Button text="My Blog"
+        href="/about-me"
+        --clr-button="var(--clr-sky)"/>
+    </div>
   </section>
 
   <section class="" data-gap="large">
