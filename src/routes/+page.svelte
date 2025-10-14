@@ -140,7 +140,7 @@
       </h2>
 
       <Button text="My Blog"
-        href="/about-me"
+        href="/blog"
         --clr-button="var(--clr-sky)"/>
     </div>
   </section>
