@@ -156,6 +156,27 @@
       imgAlt: "Screenshot of my homepage of the services I selfhost, customized with gethomepage",
 
       projectLang: "config",
+    },
+
+    {
+      title: "\"Homelab\" Setup",
+      dateCreated: "Apr 2025",
+      description: "An assortment of servers and switches I collected to support my selfhosting hobby and expand on network infrastructure.",
+      imgSrc: "/images/cards/homelab.jpg",
+      imgAlt: "My homelab, with an ethernet cable running to a switch and some mini PCs stacked up",
+
+      projectLang: "config",
+    },
+
+    {
+      title: "ESP32 LED Clock",
+      dateCreated: "Aug 2025",
+      description: "An LED clock that displays date, time, weather status, temperature, and even daily news periodically on a 64x32 P5 LED Matrix board with an ESP32.",
+      imgSrc: "/images/cards/led-clock.png",
+      imgAlt: "How the clock usually works. It is displaying 10:26:46 AM at Tuesday, November 11, 2025. The weather is sunny and 41.2 degrees Fahrenheit. It is daytime.",
+
+      projectLang: "c++",
+      projectSrc: "https://github.com/SSS-Says-Snek/esp32-led-clock-display"
     }
   ];
 
