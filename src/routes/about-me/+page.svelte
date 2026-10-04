@@ -52,19 +52,19 @@
   <Delay animationDelayMs={START_DELAY}>
     <Card 
       title="Hey, I'm Brandon!"
-      description="I'm currently a high school student somewhere in Alabama, and like to do nerdy stuff like programming and math."
+      description="I'm currently a college freshman at MIT, and like to do nerdy stuff like programming and math."
 
       imgSrc="/images/cards/literally-me.png"
       imgAlt="A photo of me"
     >
       <div class="icon-container age">
         <MdiCakeVariant />
-        <p>17</p>
+        <p>18</p>
       </div>
 
       <div class="icon-container grade">
         <MdiSchoolOutline />
-        <p>Senior</p>
+        <p>Freshman</p>
       </div>
     </Card>
   </Delay>
