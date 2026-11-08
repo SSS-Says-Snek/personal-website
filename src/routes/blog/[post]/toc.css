@@ -39,8 +39,8 @@
     margin-bottom: 1rem;
 }
 
-.toc[data-no-toc="true"] {
-  display: none;
+.hide-toc .toc {
+  display: none !important;
 }
 
 @media (width > 1800px) {

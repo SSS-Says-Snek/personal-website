@@ -36,5 +36,5 @@ export default async function fetchPostSide(fetch: Function) {
   //   await supabase.from('image_of_the_day').update( { url: imageURL, last_accessed: dateNow }).eq('id', 0);
   // }
 
-  return { allPosts: posts, posts, popularTags: tagsKey.slice(0, 15), imageURL: 'https://apod.nasa.gov/apod/image/2506/ScyllaB_LerouxGere_960.jpg' };
+  return { allPosts: posts, posts, popularTags: tagsKey.slice(0, 15), imageURL: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/7/75/Trifid_Nebula_by_Deddy_Dayag.jpg/1920px-Trifid_Nebula_by_Deddy_Dayag.jpg' };
 }

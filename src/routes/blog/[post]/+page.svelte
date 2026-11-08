@@ -35,6 +35,7 @@
     document.querySelectorAll('section').forEach((section) => {
       observer.observe(section);
     });
+    console.log("hello" + post.noTOC)
 
 
     //const allText = document.body.innerText;
@@ -67,7 +68,7 @@
 
 <hr>
 
-<div class="md-content">
+<div class="md-content {post.noTOC ? 'hide-toc' : ''}">
   <PostContent />
 </div>
 
