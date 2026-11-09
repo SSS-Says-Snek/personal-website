@@ -3,6 +3,7 @@
   import MdiReddit from '~icons/mdi/reddit'
   import MdiDiscord from '~icons/mdi/discord'
   import LinkedinIcon from '~icons/mdi/linkedin'
+  import GithubIcon from '~icons/mdi/github'
   import MaterialSymbolsChat from '~icons/material-symbols/chat';
   import MdiKeyboardArrowLeft from '~icons/mdi/keyboard-arrow-left';
   import MdiKeyboardArrowRight from '~icons/mdi/keyboard-arrow-right';
@@ -57,7 +58,7 @@
 
 <Hero>
   <h1>Hey, I'm Brandon</h1>
-  <h2>(also known as SSS-Says-Snek)</h2>
+  <h2>(also known as s4aysnek)</h2>
 
   <div class="links">
     <a class="profile-link" href="https://www.youtube.com/channel/UCy0lVIEyazL73R-8NECWMfw">
@@ -69,11 +70,14 @@
     <a class="profile-link" href="https://www.discordapp.com/users/683852333293109269">
       <MdiDiscord style="font-size: 30px;" />
     </a>
-    <a class="profile-link" href="/blog">
-      <MaterialSymbolsChat style="font-size: 30px;" />
-    </a>
     <a class="profile-link" href="https://www.linkedin.com/in/brandon-cui-5b6520278/">
       <LinkedinIcon style="font-size: 30px;" />
+    </a>
+    <a class="profile-link" href="https://github.com/SSS-Says-Snek">
+      <GithubIcon style="font-size: 30px;" />
+    </a>
+    <a class="profile-link" href="/blog">
+      <MaterialSymbolsChat style="font-size: 30px;" />
     </a>
   </div>
 </Hero>
