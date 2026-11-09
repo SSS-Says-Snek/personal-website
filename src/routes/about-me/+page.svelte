@@ -54,12 +54,12 @@
       title="Hey, I'm Brandon!"
       description="I'm currently a college freshman at MIT, and like to do nerdy stuff like programming and math."
 
-      imgSrc="/images/cards/literally-me.png"
+      imgSrc="/images/cards/literally-me.jpeg"
       imgAlt="A photo of me"
     >
       <div class="icon-container age">
         <MdiCakeVariant />
-        <p>18</p>
+        <p>19</p>
       </div>
 
       <div class="icon-container grade">
